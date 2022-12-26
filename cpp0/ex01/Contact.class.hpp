@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 12:33:39 by theo              #+#    #+#             */
-/*   Updated: 2022/12/26 15:04:12 by theo             ###   ########.fr       */
+/*   Updated: 2022/12/26 17:21:11 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,25 +22,25 @@ class Contact
 		std::string lastname;
 		std::string number;
 		std::string secret;
-		void	add_first(Contact contact)
+		void	add_first(Contact *contact)
 		{
 			std::cout << "Enter first name :" << std::endl;
-			std::cin >> contact.firstname;
+			std::cin >> contact->firstname;
 		}
-		void	add_last(Contact contact)
+		void	add_last(Contact *contact)
 		{
 			std::cout << "Enter last name :" << std::endl;
-			std::cin >> contact.lastname;
+			std::cin >> contact->lastname;
 		}
-		void	add_number(Contact contact)
+		void	add_number(Contact *contact)
 		{
 			std::cout << "Enter phone number :" << std::endl;
-			std::cin >> contact.number;
+			std::cin >> contact->number;
 		}
-		void	add_secret(Contact contact)
+		void	add_secret(Contact *contact)
 		{
 			std::cout << "Enter secret :" << std::endl;
-			std::cin >> contact.secret;
+			std::cin >> contact->secret;
 		}
 };
 
