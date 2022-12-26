@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 12:33:39 by theo              #+#    #+#             */
-/*   Updated: 2022/12/26 17:21:11 by theo             ###   ########.fr       */
+/*   Updated: 2022/12/26 21:37:51 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class Contact
 	public:
 		std::string firstname;
 		std::string lastname;
+		std::string	nickname;
 		std::string number;
 		std::string secret;
 		void	add_first(Contact *contact)
@@ -31,6 +32,11 @@ class Contact
 		{
 			std::cout << "Enter last name :" << std::endl;
 			std::cin >> contact->lastname;
+		}
+		void	add_nick(Contact *contact)
+		{
+			std::cout << "Enter nickname :" << std::endl;
+			std::cin >> contact->nickname; 
 		}
 		void	add_number(Contact *contact)
 		{
