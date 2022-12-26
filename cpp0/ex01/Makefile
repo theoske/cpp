@@ -6,15 +6,15 @@
 #    By: theo <theo@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/20 17:08:06 by theo              #+#    #+#              #
-#    Updated: 2022/12/20 17:08:34 by theo             ###   ########.fr        #
+#    Updated: 2022/12/26 15:10:58 by theo             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 
-NAME     := megaphone
+NAME     := annuaire
 
-SRCS     := megaphone.cpp
+SRCS     := class.cpp	main.cpp
 OBJS     := $(SRCS:.cpp=.o)
 
 CXX      := g++
@@ -30,11 +30,9 @@ $(NAME): $(OBJS)
 
 clean:
 	@rm -f $(OBJS)
-	@echo "[INFO] Objects removed!"
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "[INFO] $(NAME) removed!"
 
 re:     fclean all
 
