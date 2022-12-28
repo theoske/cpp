@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 15:43:42 by theo              #+#    #+#             */
-/*   Updated: 2022/12/27 19:57:12 by theo             ###   ########.fr       */
+/*   Updated: 2022/12/28 15:25:38 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@ void	print_input(std::string entry)
 	std::cout << temp;
 }
 
-void	print_details(Contact contact)
+void	print_details(Contact contact[8], int i)
 {
 	std::cout << "Firstname :" << std::endl;
-	std::cout << contact.firstname << std::endl;
+	std::cout << contact[i].firstname << std::endl;
 	std::cout << "Lastname :" << std::endl;
-	std::cout << contact.lastname << std::endl;
+	std::cout << contact[i].lastname << std::endl;
 	std::cout << "Nickname :" << std::endl;
-	std::cout << contact.nickname << std::endl;
+	std::cout << contact[i].nickname << std::endl;
 	std::cout << "Phone number :" << std::endl;
-	std::cout << contact.number << std::endl;
+	std::cout << contact[i].number << std::endl;
 	std::cout << "Deepest dirtiest naughtiest secret :" << std::endl;
-	std::cout << contact.secret << std::endl;
+	std::cout << contact[i].secret << std::endl;
 }
 
 void	show_contact(Phonebook annuaire, int i)
@@ -45,22 +45,22 @@ void	show_contact(Phonebook annuaire, int i)
 		std::cout << "Enter a valid contact number for more info :" << std::endl;
 		std::cin >> entry;
 	}
-	if (entry.compare("0") && !annuaire.contact[0].firstname.empty())
-		print_details(annuaire.contact[0]);
-	else if (entry.compare("1") && !annuaire.contact[1].firstname.empty())
-		print_details(annuaire.contact[1]);
-	else if (entry.compare("2") && !annuaire.contact[2].firstname.empty())
-		print_details(annuaire.contact[2]);
-	else if (entry.compare("3") && !annuaire.contact[3].firstname.empty())
-		print_details(annuaire.contact[3]);
-	else if (entry.compare("4") && !annuaire.contact[4].firstname.empty())
-		print_details(annuaire.contact[4]);
-	else if (entry.compare("5") && !annuaire.contact[5].firstname.empty())
-		print_details(annuaire.contact[5]);
-	else if (entry.compare("6") && !annuaire.contact[6].firstname.empty())
-		print_details(annuaire.contact[6]);
-	else if (entry.compare("7") && !annuaire.contact[7].firstname.empty())
-		print_details(annuaire.contact[7]);
+	if (!entry.compare("0") && !annuaire.contact[0].firstname.empty())
+		print_details(annuaire.contact, 0);
+	else if (!entry.compare("1") && !annuaire.contact[1].firstname.empty())
+		print_details(annuaire.contact, 1);
+	else if (!entry.compare("2") && !annuaire.contact[2].firstname.empty())
+		print_details(annuaire.contact, 2);
+	else if (!entry.compare("3") && !annuaire.contact[3].firstname.empty())
+		print_details(annuaire.contact, 3);
+	else if (!entry.compare("4") && !annuaire.contact[4].firstname.empty())
+		print_details(annuaire.contact, 4);
+	else if (!entry.compare("5") && !annuaire.contact[5].firstname.empty())
+		print_details(annuaire.contact, 5);
+	else if (!entry.compare("6") && !annuaire.contact[6].firstname.empty())
+		print_details(annuaire.contact, 6);
+	else if (!entry.compare("7") && !annuaire.contact[7].firstname.empty())
+		print_details(annuaire.contact, 7);
 }
 
 void	ft_search(Phonebook annuaire, int i)
@@ -87,7 +87,6 @@ void	ft_search(Phonebook annuaire, int i)
 	show_contact(annuaire, i);
 }
 
-// rentrer un index ensuite permet de voir un contact avec infos ligne par ligne
 int	main()
 {
 	std::string	entry;
@@ -97,15 +96,15 @@ int	main()
 	std::cout << "Bienvenue dans l'annuaire" << std::endl;
 	std::cin >> entry;
 	i = 0;
-	while (!entry.compare("EXIT"))
+	while (entry.compare("EXIT") != 0)
 	{
-		if (entry.compare("ADD"))
+		if (entry.compare("ADD") == 0)
 		{
-			annuaire.contact[i % 7].add_first(&annuaire.contact[i % 7]);
-			annuaire.contact[i % 7].add_last(&annuaire.contact[i % 7]);
-			annuaire.contact[i % 7].add_nick(&annuaire.contact[i % 7]);
-			annuaire.contact[i % 7].add_number(&annuaire.contact[i % 7]);
-			annuaire.contact[i % 7].add_secret(&annuaire.contact[i % 7]);
+			annuaire.contact[i % 8].add_first(&annuaire.contact[i % 8]);
+			annuaire.contact[i % 8].add_last(&annuaire.contact[i % 8]);
+			annuaire.contact[i % 8].add_nick(&annuaire.contact[i % 8]);
+			annuaire.contact[i % 8].add_number(&annuaire.contact[i % 8]);
+			annuaire.contact[i % 8].add_secret(&annuaire.contact[i % 8]);
 			i++;
 		}
 		else if (entry.compare("SEARCH") == 0)
