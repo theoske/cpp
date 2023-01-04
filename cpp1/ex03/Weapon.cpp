@@ -3,20 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:50:07 by theo              #+#    #+#             */
-/*   Updated: 2023/01/03 17:04:34 by theo             ###   ########.fr       */
+/*   Updated: 2023/01/04 16:54:08 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-Weapon::Weapon(/* args */)
+Weapon::Weapon(void)
 {
+	this->setType("bare hands");
+	return ;
 }
 
-Weapon::~Weapon()
+Weapon::Weapon(std::string type)
+{
+	this->setType(type);
+	return ;
+}
+
+Weapon::~Weapon(void)
 {
 }
 
