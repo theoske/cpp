@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:44:50 by theo              #+#    #+#             */
-/*   Updated: 2023/01/03 16:59:16 by theo             ###   ########.fr       */
+/*   Updated: 2023/01/04 15:20:30 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define WEAPON_HPP
 
 # include <iostream>
+# include <string>
 
 class Weapon
 {
