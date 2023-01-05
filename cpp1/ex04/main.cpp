@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 17:38:17 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/01/05 18:56:39 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/01/05 19:11:10 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,11 @@ int	main(int argc, char *argv[])
 	s2 = argv[3];
 	std::ifstream	myfile(filename);
 	std::ofstream	file2(file2name);
+	//mettre myfile dans une string content
+	std::string	content(std::istreambuf_iterator<char>(myfile));
 	//trouver occu
+	std::size_t	found;
+	found = 
 	//copier jusqua occu s1
 	//quand occu mettre s2
 	myfile.close();
