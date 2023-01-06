@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 17:49:28 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/01/06 18:05:46 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/01/06 19:01:50 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@
 class Fixed
 {
 	private:
-		int					comma;
+		int					nb;
 		const static int	bits;
 	public:
 		Fixed(void);
-		//constructeur de recopie
-		//surcharge de l'operateur d'affection
+		Fixed(Fixed &tocopy);
 		~Fixed();
+		void 	operator ++();
 		int		getRawBits(void) const; // retourne valeur nombre a virgule fixe sans la convertir
 		void	setRawBits(int const raw); //initialise valeur nombre a virgule fixe sans la convertir
 };
