@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 20:15:05 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/01/05 20:40:17 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/01/06 17:44:02 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,14 @@
 
 Harl::Harl()
 {
+	std::cout << "Harl is comming for you..." << std::endl << std::endl;
+	sleep(2);
 }
 
 Harl::~Harl()
 {
+	sleep(2);
+	std::cout << std::endl << "Harl is leaving..." << std::endl;
 }
 
 void	Harl::debug(void)
@@ -42,5 +46,15 @@ void	Harl::error(void)
 
 void	Harl::complain(std::string level)
 {
-	
+	int		i;
+
+	std::string	levels[] = {"debug", "info", "warning", "error"};
+	void (Harl::*fptr[])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	i = 0;
+	while(i < 4)
+	{
+		if (levels[i] == level)
+			(*this.*fptr[i])();
+		i++;
+	}
 }

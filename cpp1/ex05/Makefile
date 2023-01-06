@@ -6,13 +6,13 @@
 #    By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 20:13:28 by tkempf-e          #+#    #+#              #
-#    Updated: 2023/01/05 20:14:07 by tkempf-e         ###   ########.fr        #
+#    Updated: 2023/01/06 17:35:09 by tkempf-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME     := harl
 
-SRCS     := main.cpp
+SRCS     := main.cpp	Harl.cpp
 OBJS     := $(SRCS:.cpp=.o)
 
 CXX      := g++
