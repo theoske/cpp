@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: theo <theo@student.42.fr>                  +#+  +:+       +#+         #
+#    By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/03 14:35:44 by theo              #+#    #+#              #
-#    Updated: 2023/01/03 15:38:53 by theo             ###   ########.fr        #
+#    Updated: 2023/02/06 14:22:42 by tkempf-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,8 @@ SRCS     := newZombie.cpp	main.cpp	randomChump.cpp		Zombie.cpp	\
 			zombieHorde.cpp
 OBJS     := $(SRCS:.cpp=.o)
 
-CXX      := g++
-CXXFLAGS := -Wall -Werror -Wextra
+CXX      := c++
+CXXFLAGS := -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 

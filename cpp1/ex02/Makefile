@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: theo <theo@student.42.fr>                  +#+  +:+       +#+         #
+#    By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/03 15:57:16 by theo              #+#    #+#              #
-#    Updated: 2023/01/03 15:58:09 by theo             ###   ########.fr        #
+#    Updated: 2023/02/06 14:22:57 by tkempf-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@ NAME     := brain
 SRCS     := main.cpp
 OBJS     := $(SRCS:.cpp=.o)
 
-CXX      := g++
-CXXFLAGS := -Wall -Werror -Wextra
+CXX      := c++
+CXXFLAGS := -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 

@@ -6,7 +6,7 @@
 #    By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 17:37:38 by tkempf-e          #+#    #+#              #
-#    Updated: 2023/01/05 17:38:01 by tkempf-e         ###   ########.fr        #
+#    Updated: 2023/02/06 14:23:11 by tkempf-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@ NAME     := sed
 SRCS     := main.cpp
 OBJS     := $(SRCS:.cpp=.o)
 
-CXX      := g++
-CXXFLAGS := -Wall -Werror -Wextra
+CXX      := c++
+CXXFLAGS := -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 

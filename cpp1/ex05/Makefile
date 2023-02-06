@@ -6,7 +6,7 @@
 #    By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/05 20:13:28 by tkempf-e          #+#    #+#              #
-#    Updated: 2023/01/06 17:35:09 by tkempf-e         ###   ########.fr        #
+#    Updated: 2023/02/06 14:23:20 by tkempf-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@ NAME     := harl
 SRCS     := main.cpp	Harl.cpp
 OBJS     := $(SRCS:.cpp=.o)
 
-CXX      := g++
-CXXFLAGS := -Wall -Werror -Wextra
+CXX      := c++
+CXXFLAGS := -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 
