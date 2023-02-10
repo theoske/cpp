@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:39:21 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/02/10 16:23:04 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/02/10 16:56:53 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,46 @@ Fixed	&Fixed::operator=(const Fixed& f)
 	return (*this);
 }
 
-bool	&Fixed::operator>(const Fixed &f)
+bool	Fixed::operator>(const Fixed &f)
 {
-	
+	if (f.nb > this->nb)
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator<(const Fixed &f)
+{
+	if (f.nb < this->nb)
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator>=(const Fixed &f)
+{
+	if (f.nb >= this->nb)
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator<=(const Fixed &f)
+{
+	if (f.nb <= this->nb)
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator==(const Fixed &f)
+{
+	if (f.nb == this->nb)
+		return (true);
+	return (false);
+}
+
+bool	Fixed::operator!=(const Fixed &f)
+{
+	if (f.nb != this->nb)
+		return (true);
+	return (false);
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed &f)

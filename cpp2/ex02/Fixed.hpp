@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:38:47 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/02/10 16:31:14 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/02/10 16:57:11 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ class Fixed
 		bool	operator>=(const Fixed &f);
 		bool	operator<=(const Fixed &f);
 		bool	operator==(const Fixed &f);
-		bool	operator!=(const Fixed &f);
+		bool	operator!=(const Fixed &f);//fait
 		
 		static Fixed	min(Fixed &f, Fixed &s);
 		static Fixed	min(const Fixed &f, const Fixed &s);
