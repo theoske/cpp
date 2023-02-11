@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:39:21 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/02/11 16:30:13 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/02/11 16:45:14 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,34 @@ Fixed	&Fixed::operator/(const Fixed &f)
 {
 	this->nb = this->nb / f.nb;
 	return (*this);
+}
+
+Fixed	&Fixed::operator++(void)
+{
+	this->nb++;
+	return (*this);
+}
+
+Fixed	&Fixed::operator--(void)
+{
+	this->nb--;
+	return (*this);
+}
+
+Fixed	Fixed::operator++(int)
+{
+	Fixed	temp = *this;
+
+	temp.operator++();
+	return (temp);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	Fixed	temp = *this;
+
+	temp.operator--();
+	return (temp);
 }
 
 bool	Fixed::operator>(const Fixed &f)

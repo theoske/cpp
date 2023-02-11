@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:38:47 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/02/11 16:30:10 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/02/11 16:45:37 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class Fixed
 		Fixed	&operator++();
 		Fixed	&operator--();
 		Fixed	operator++(int);
-		Fixed	operator--(int);
+		Fixed	operator--(int);//fait
 
 		bool	operator>(const Fixed &f);
 		bool	operator<(const Fixed &f);
@@ -50,6 +50,7 @@ class Fixed
 		static Fixed	min(const Fixed &f, const Fixed &s);
 		static Fixed	max(Fixed &f, Fixed &s);
 		static Fixed	max(const Fixed &f, const Fixed &s);
+
 		int				getRawBits(void) const;
 		void			setRawBits(int const raw);
 		float			toFloat(void) const;
