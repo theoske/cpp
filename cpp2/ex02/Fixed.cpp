@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:39:21 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/02/11 16:45:14 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/02/11 16:51:36 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,6 +140,34 @@ bool	Fixed::operator!=(const Fixed &f)
 	if (f.nb != this->nb)
 		return (true);
 	return (false);
+}
+
+Fixed	Fixed::min(Fixed &f, Fixed &s)
+{
+	if (f.nb > s.nb)
+		return (s);
+	return (f);
+}
+
+Fixed	Fixed::max(Fixed &f, Fixed &s)
+{
+	if (f.nb < s.nb)
+		return (s);
+	return (f);
+}
+
+Fixed	Fixed::min(const Fixed &f, const Fixed &s)
+{
+	if (f.nb > s.nb)
+		return (s);
+	return (f);
+}
+
+Fixed	Fixed::max(const Fixed &f, const Fixed &s)
+{
+	if (f.nb < s.nb)
+		return (s);
+	return (f);
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed &f)
