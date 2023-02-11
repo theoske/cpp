@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:38:47 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/02/10 16:57:11 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/02/11 16:30:10 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Fixed
 		Fixed&operator+(const Fixed &f);
 		Fixed&operator-(const Fixed &f);
 		Fixed&operator*(const Fixed &f);
-		Fixed&operator/(const Fixed &f);
+		Fixed&operator/(const Fixed &f);//fait
 
 		Fixed	&operator++();
 		Fixed	&operator--();
