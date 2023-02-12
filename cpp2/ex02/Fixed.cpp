@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:39:21 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/02/11 16:51:36 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/02/12 16:41:50 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,73 +14,80 @@
 
 Fixed::Fixed()
 {
-	std::cout << "Default constructor called" << std::endl;
 	this->nb = 0;
 }
 
 Fixed::Fixed(const Fixed &tocopy)
 {
-	std::cout << "Copy constructor called" << std::endl;
 	*this = tocopy;
 }
 
-Fixed::Fixed(const int cnb)//converti cnb en virgule fixe this->nb
+Fixed::Fixed(const int cnb)
 {
-	std::cout << "Int constructor called" << std::endl;
 	this->setRawBits(cnb << 8);
 }
 
 Fixed::Fixed(const float cfnb)
 {
-	std::cout << "Float constructor called" << std::endl;
 	this->setRawBits(roundf((cfnb * 256)));
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
 }
 
 Fixed	&Fixed::operator=(const Fixed& f)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
 	this->setRawBits(f.getRawBits());
 	return (*this);
 }
 
 Fixed	&Fixed::operator+(const Fixed &f)
 {
-	this->nb = this->nb + f.nb;
+	int	result = this->getRawBits() + f.getRawBits();
+
+	this->setRawBits(result);
 	return (*this);
 }
 
 Fixed	&Fixed::operator-(const Fixed &f)
 {
-	this->nb = this->nb - f.nb;
+	int	result = this->getRawBits() - f.getRawBits();
+
+	this->setRawBits(result);
 	return (*this);
 }
 
 Fixed	&Fixed::operator*(const Fixed &f)
 {
-	this->nb = this->nb * f.nb;
+	long	result = (long)this->getRawBits() * (long)f.getRawBits();
+
+	result = result >> 8;
+	this->setRawBits((int) result);
 	return (*this);
 }
 
 Fixed	&Fixed::operator/(const Fixed &f)
 {
-	this->nb = this->nb / f.nb;
+	int	a = (this->getRawBits() * (1 << 8)) / f.getRawBits();
+
+	this->setRawBits(a);
 	return (*this);
 }
 
 Fixed	&Fixed::operator++(void)
 {
-	this->nb++;
+	int	result = this->getRawBits();
+
+	this->setRawBits(++result);
 	return (*this);
 }
 
 Fixed	&Fixed::operator--(void)
 {
-	this->nb--;
+	int	result = this->getRawBits();
+
+	this->setRawBits(--result);
 	return (*this);
 }
 
@@ -88,7 +95,7 @@ Fixed	Fixed::operator++(int)
 {
 	Fixed	temp = *this;
 
-	temp.operator++();
+	operator++();
 	return (temp);
 }
 
@@ -96,7 +103,7 @@ Fixed	Fixed::operator--(int)
 {
 	Fixed	temp = *this;
 
-	temp.operator--();
+	operator--();
 	return (temp);
 }
 
