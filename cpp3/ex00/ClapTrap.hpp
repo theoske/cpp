@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 17:06:20 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/02/12 17:18:14 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/02/14 17:47:13 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,16 @@ private:
 public:
 	ClapTrap();
 	ClapTrap(std::string name);
+	ClapTrap(const ClapTrap &f);
+	ClapTrap&operator=(const ClapTrap &f);
 	~ClapTrap();
 
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
+	int	gethp();
+	int	getep();
+	int	getad();
 };
 
 #endif
