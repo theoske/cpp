@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 17:06:23 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/02/16 15:51:28 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/02/16 16:48:04 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ ClapTrap::ClapTrap()
 	std::cout << "An unknown ClapTrap appeared!!!" << std::endl;
 	this->name = "unkown";
 	this->hp = 100;
-	this->ep = 50;
-	this->ad = 20;
+	this->ep = 100;
+	this->ad = 30;
 }
 
 ClapTrap::ClapTrap(std::string name)
 {
 	this->name = name;
 	this->hp = 100;
-	this->ep = 50;
-	this->ad = 20;
+	this->ep = 100;
+	this->ad = 30;
 	std::cout << "A ClapTrap named " << this->name << " appeared!!"<< std::endl;
 }
 
