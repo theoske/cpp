@@ -6,13 +6,13 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 16:49:54 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/02/16 17:03:03 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/02/16 17:23:23 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(std::string name)
+FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
 	std::cout << "A FragTrap named " << name << " appeared!!" << std::endl;
 }
