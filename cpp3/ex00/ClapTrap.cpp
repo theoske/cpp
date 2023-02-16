@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 17:06:23 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/02/14 18:00:34 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/02/16 15:51:43 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ ClapTrap::ClapTrap(const ClapTrap &f)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << this->name << " desappeared!!" << std::endl;
+	std::cout << this->name << " disappeared!!" << std::endl;
 }
 
 void	ClapTrap::attack(const std::string &target)

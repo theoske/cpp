@@ -6,63 +6,27 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 17:06:17 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/02/14 17:55:07 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/02/16 15:56:26 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int	main(void)
 {
-	ClapTrap	player("ske");
-
-	std::cout << "Values: " << std::endl;
-
-	std::cout << "Life: " << player.gethp() << std::endl;
-	std::cout << "Energy: " << player.getep() << std::endl;
-	std::cout << "Damage points: " << player.getad() << std::endl;
+	ScavTrap	player("ske");
 
 	std::cout << std::endl;
-
-	player.attack("vampire");
-	player.takeDamage(0);
-	player.takeDamage(3);
-
+	player.attack("ennemie");
+	player.guardGate();
 	std::cout << std::endl;
 
-	std::cout << "Values: " << std::endl;
+	player.beRepaired(1);
+	player.takeDamage(50);
 
-	std::cout << "Life: " << player.gethp() << std::endl;
-	std::cout << "Energy: " << player.getep() << std::endl;
-	std::cout << "Damage points: " << player.getad() << std::endl;
-
-	std::cout << std::endl;
-
-	player.beRepaired(0);
-	player.beRepaired(10);
-
-	player.attack("vampire");
+	player.attack("ennemie");
+	
 
 	std::cout << std::endl;
-
-	std::cout << "Values: " << std::endl;
-
-	std::cout << "Life: " << player.gethp() << std::endl;
-	std::cout << "Energy: " << player.getep() << std::endl;
-	std::cout << "Damage points: " << player.getad() << std::endl;
-
-	player.attack("vampire");
-	player.attack("vampire");
-	player.attack("vampire");
-	player.attack("vampire");
-	player.takeDamage(8);
-	player.attack("vampire");
-	player.attack("vampire");
-	player.attack("vampire");
-	player.attack("vampire");
-
-	player.attack("vampire");
-	player.beRepaired(10);
-
 	return (0);
 }

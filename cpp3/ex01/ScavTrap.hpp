@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 16:36:09 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/02/15 16:55:27 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/02/16 15:43:53 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ public:
     ~ScavTrap(void);
 
 	void	guardGate();
+	void	attack(const std::string &target);
 };
 
 #endif
