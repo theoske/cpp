@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:00:35 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/03/01 16:56:30 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/03/01 17:18:27 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class Animal
 
 		void	setType(std::string type);
 		std::string	getType();
+		void	makeSound();
 
 	protected:
 		std::string	type;

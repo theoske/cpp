@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:48:05 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/03/01 16:58:41 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/03/01 17:19:00 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,9 @@ void	Animal::setType(std::string type)
 std::string	Animal::getType()
 {
 	return(this->type);
+}
+
+void	Animal::makeSound()
+{
+	std::cout << "*weird undefinable noise*" << std::endl;
 }
