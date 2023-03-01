@@ -6,13 +6,13 @@
 #    By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/01 14:56:05 by tkempf-e          #+#    #+#              #
-#    Updated: 2023/03/01 14:56:19 by tkempf-e         ###   ########.fr        #
+#    Updated: 2023/03/01 15:47:53 by tkempf-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME     := polymorphism
 
-SRCS     := main.cpp	Bureaucrat.cpp
+SRCS     := main.cpp	Cat.cpp		Dog.cpp		Animal.cpp
 OBJS     := $(SRCS:.cpp=.o)
 
 CXX      := c++
