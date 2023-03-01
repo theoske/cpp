@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/01 14:56:05 by tkempf-e          #+#    #+#              #
-#    Updated: 2023/03/01 14:56:19 by tkempf-e         ###   ########.fr        #
+#    Created: 2023/02/17 15:15:26 by tkempf-e          #+#    #+#              #
+#    Updated: 2023/03/01 14:55:55 by tkempf-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME     := polymorphism
+NAME     := bureaucrat
 
 SRCS     := main.cpp	Bureaucrat.cpp
 OBJS     := $(SRCS:.cpp=.o)
