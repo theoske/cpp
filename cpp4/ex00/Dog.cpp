@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 16:39:59 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/03/01 16:55:20 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/03/01 17:44:32 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,13 @@ Dog::~Dog()
 	std::cout << "A dog went back to the dust..." << std::endl;
 }
 
-void	Dog::makeSound()
+std::ostream &operator<<(std::ostream & o, Dog const & i)
+{
+	(void) i;
+	return o;
+}
+
+void	Dog::makeSound() const
 {
 	std::cout << "AWOUAAF!!!!!" << std::endl;
 }

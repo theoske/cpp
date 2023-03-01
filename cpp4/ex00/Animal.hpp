@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:00:35 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/03/01 17:18:27 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/03/01 17:44:44 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ class Animal
 		Animal&operator=(const Animal &f);
 		virtual ~Animal();
 
-		void	setType(std::string type);
-		std::string	getType();
-		void	makeSound();
+		void		setType(std::string type);
+		std::string	getType() const;
+		void		makeSound() const;
 
 	protected:
 		std::string	type;
