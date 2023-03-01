@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:00:35 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/03/01 16:18:21 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/03/01 16:56:30 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,19 @@
 
 class Animal
 {
-private:
-	
-public:
-	Animal();
-	Animal(const Animal &f);
-	Animal&operator=(const Animal &f);
-	virtual ~Animal();
+	private:
+		
+	public:
+		Animal();
+		Animal(const Animal &f);
+		Animal&operator=(const Animal &f);
+		virtual ~Animal();
 
-	void	setType(std::string type);
+		void	setType(std::string type);
+		std::string	getType();
 
-protected:
-	std::string	type;
+	protected:
+		std::string	type;
 };
 
 #endif
