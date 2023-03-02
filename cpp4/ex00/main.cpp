@@ -6,13 +6,15 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:55:40 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/03/01 17:47:37 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/03/01 17:50:19 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
+
+//mauvais son et pas de wrongAnimal
 
 int main()
 {
