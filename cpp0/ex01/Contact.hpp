@@ -6,15 +6,14 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 12:33:39 by theo              #+#    #+#             */
-/*   Updated: 2023/03/06 16:18:47 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:52:00 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_CLASS_H
 # define CONTACT_CLASS_H
 
-#include <iostream>
-#include <string>
+# include "Phonebook.hpp"
 
 class Contact
 {

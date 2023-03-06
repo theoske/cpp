@@ -6,11 +6,11 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 12:44:59 by theo              #+#    #+#             */
-/*   Updated: 2023/03/06 16:25:14 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:42:46 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#include "Contact.hpp"
 
 Contact::Contact()
 {
