@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 17:32:14 by theo              #+#    #+#             */
-/*   Updated: 2022/12/20 17:04:32 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/06 16:10:12 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cctype>
 
 /*
 	$>./megaphone "shhhhh... I think the students are asleep..."
@@ -23,28 +24,11 @@
 	* LOUD AND UNBEARABLE FEEDBACK NOISE *
 */
 
-void	megaphone(char **argv)
+char	*megaphone(char *string)
 {
-	int		i;
-	int		j;
-	char	*str;
-
-	i = 1;
-	while (argv[i])
-	{
-		str = argv[i];
-		j = 0;
-		while (str[j])
-		{
-			if (str[j] > 96 && str[j] < 123)
-				std::cout << (char)(str[j] - 32);
-			else if (str[j] != '\"')
-				std::cout << str[j];
-			j++;
-		}
-		i++;
-	}
-	std::cout << std::endl;
+	for (int i = 0; string[i]; i++)
+		string[i] = toupper(string[i]);
+	return (string);
 }
 
 int main(int argc, char **argv)
@@ -54,6 +38,8 @@ int main(int argc, char **argv)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 		return 0;
 	}
-	megaphone(argv);
+	for (int i=1; i < argc; i++)
+		std::cout << megaphone(argv[i]);
+	std::cout << std::endl;
 	return 0;
 }
