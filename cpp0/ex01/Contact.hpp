@@ -6,14 +6,16 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 12:33:39 by theo              #+#    #+#             */
-/*   Updated: 2023/03/06 16:52:00 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/03/07 17:44:26 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_CLASS_H
 # define CONTACT_CLASS_H
 
-# include "Phonebook.hpp"
+# include <string>
+# include <iostream>
+# include <iomanip>
 
 class Contact
 {
@@ -39,5 +41,7 @@ class Contact
 		void	ft_search2(void);
 		int		is_empty(void);
 };
+
+void	print_input(std::string entry);
 
 #endif
