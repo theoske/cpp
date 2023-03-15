@@ -5,34 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/21 12:33:43 by theo              #+#    #+#             */
-/*   Updated: 2023/03/07 17:45:41 by tkempf-e         ###   ########.fr       */
+/*   Created: 2023/03/15 15:40:02 by tkempf-e          #+#    #+#             */
+/*   Updated: 2023/03/15 16:33:42 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_CLASS_H
-# define PHONEBOOK_CLASS_H
+#ifndef PHONEBOOK_H
+# define    PHONEBOOK_H
 
 # include "Contact.hpp"
-# include <string>
-# include <iostream>
-# include <iomanip>
 
 class Phonebook
 {
-	private:
+private:
+    Contact contact[8];
+public:
+    Phonebook();
+	~Phonebook();
+	Phonebook&operator=(const Phonebook &f);
+	Phonebook(const Phonebook &f);
 
-	public:
-		Phonebook();
-		~Phonebook();
-
-		Phonebook&operator=(const Phonebook &f);
-		Phonebook(const Phonebook &f);
-
-		Contact	contact[8];
+    void    add_contact();//appel add
+    void    search_contact();//appel detail
 };
-
-void	show_contact(Phonebook annuaire, int i);
-void	ft_search(Phonebook annuaire, int i);
 
 #endif

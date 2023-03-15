@@ -5,14 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/12/20 17:08:06 by theo              #+#    #+#              #
-#    Updated: 2023/03/06 17:01:52 by tkempf-e         ###   ########.fr        #
+#    Created: 2023/03/15 15:39:02 by tkempf-e          #+#    #+#              #
+#    Updated: 2023/03/15 15:39:32 by tkempf-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
-
-NAME     := annuaire
+NAME     := phonebook
 
 SRCS     := Contact.cpp	main.cpp	Phonebook.cpp
 OBJS     := $(SRCS:.cpp=.o)
