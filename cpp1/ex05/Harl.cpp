@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 20:15:05 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/01/06 17:44:02 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/03/16 18:10:52 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,17 @@ Harl::~Harl()
 {
 	sleep(2);
 	std::cout << std::endl << "Harl is leaving..." << std::endl;
+}
+
+Harl	&Harl::operator=(const Harl &f)
+{
+	(void)	f;
+	return (*this);
+}
+
+Harl::Harl(const Harl &f)
+{
+	*this = f;
 }
 
 void	Harl::debug(void)
