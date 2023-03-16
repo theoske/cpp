@@ -34,6 +34,7 @@ public:
 
     void    add();
     void    detail();
+    void    contact_info();
 };
 
 #endif
