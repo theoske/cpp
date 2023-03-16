@@ -6,13 +6,13 @@
 #    By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/03 14:35:44 by theo              #+#    #+#              #
-#    Updated: 2023/02/06 14:22:31 by tkempf-e         ###   ########.fr        #
+#    Updated: 2023/03/16 17:23:38 by tkempf-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME     := zombie
 
-SRCS     := newZombie.cpp	main.cpp	randomChump.cpp		Zombie.cpp
+SRCS     := main.cpp	Zombie.cpp
 OBJS     := $(SRCS:.cpp=.o)
 
 CXX      := c++
