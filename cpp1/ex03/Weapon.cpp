@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 16:50:07 by theo              #+#    #+#             */
-/*   Updated: 2023/01/04 16:54:08 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/03/16 18:08:27 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,17 @@ Weapon::Weapon(std::string type)
 
 Weapon::~Weapon(void)
 {
+}
+
+Weapon	&Weapon::operator=(const Weapon &f)
+{
+	(void)	f;
+	return (*this);
+}
+
+Weapon::Weapon(const Weapon &f)
+{
+	*this = f;
 }
 
 std::string	&Weapon::getType()
