@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 13:53:45 by theo              #+#    #+#             */
-/*   Updated: 2023/01/03 15:52:42 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/16 17:48:29 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int	main()
 
 	// randomChump("jennie");
 	horde = zombieHorde(10, "Maria");
-	// int		i = 10;
-	// while (i-- > 0)
-	// 	horde[i].announce();
+	int		i = 10;
+	while (i-- > 0)
+		horde[i].announce();
 	delete [] horde;
 	return (0);
 }
