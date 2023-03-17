@@ -16,10 +16,9 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-//mauvais son et pas de wrongAnimal
-
 int main()
 {
+    // Animal  *test = new Animal();
 	Animal  *array[10];
 	
     for (size_t i = 0; i < 5; i++)
