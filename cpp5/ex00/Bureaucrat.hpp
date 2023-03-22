@@ -18,18 +18,23 @@
 
 class Bureaucrat
 {
-private:
-	const std::string	name;
-	int					grade; // de 150 a 1
+	private:
+		const std::string	name;
+		int					grade; // de 150 a 1
 
-public:
-	Bureaucrat(/* args */);
-	~Bureaucrat();
-	
-	void				GradeTooHighException();
-	void				GradeTooLowException();
-	const std::string	getName();
-	int					getGrade();
+	public:
+		Bureaucrat(/* args */);
+		Bureaucrat(const Bureaucrat &f);
+		Bureaucrat&operator=(const Bureaucrat &f);
+		~Bureaucrat();
+		
+		void				GradeTooHighException();
+		void				GradeTooLowException();
+		const std::string	getName();
+		int					getGrade();
+
+		void	operator++();
+		void	operator--();
 };
 // try catch
 #endif
