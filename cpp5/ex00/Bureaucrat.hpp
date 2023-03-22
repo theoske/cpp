@@ -24,6 +24,7 @@ class Bureaucrat
 
 	public:
 		Bureaucrat(/* args */);
+		Bureaucrat(std::string name, int grade);
 		Bureaucrat(const Bureaucrat &f);
 		Bureaucrat&operator=(const Bureaucrat &f);
 		~Bureaucrat();
@@ -35,6 +36,9 @@ class Bureaucrat
 
 		void	operator++();
 		void	operator--();
+
 };
-// try catch
+
+std::ostream&	operator<<(std::ostream& os, const Bureaucrat &f);
+
 #endif
