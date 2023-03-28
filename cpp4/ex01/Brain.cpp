@@ -14,6 +14,7 @@
 
 Brain::Brain()
 {
+	std::cout << "Brain is formed..." << std::endl;
 }
 
 Brain::Brain(const Brain &f)
@@ -29,4 +30,5 @@ Brain	&Brain::operator=(const Brain &f)
 
 Brain::~Brain()
 {
+	std::cout << "Brain got smashed..." << std::endl;
 }
