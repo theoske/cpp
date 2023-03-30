@@ -22,8 +22,22 @@ Bureaucrat::Bureaucrat(/* args */)
 Bureaucrat::Bureaucrat(std::string name, int grade)
 {
     std::cout << "Bureaucrat constructor called" << std::endl;
-    this->name = name;
-    this->grade = grade;
+    try
+    {
+        this->name = name;
+        this->grade = grade;
+        if (grade < 1)
+            throw (1);
+        else if (grade > 150)
+            throw (150);
+    }
+    catch(int grade)
+    {
+        if (grade == 1)
+            GradeTooLowException();
+        else if (grade == 150)
+            GradeTooHighException();
+    }
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &f)
@@ -48,9 +62,10 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat &f)
 	return os;
 }
 
-void				GradeTooHighException()
+void	GradeTooHighException()
 {
-
+    if (this->grade > 150)
+        std::cout <<
 }
 
 void				GradeTooLowException();
