@@ -62,15 +62,61 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat &f)
 	return os;
 }
 
-void	GradeTooHighException()
+void	Bureaucrat::GradeTooHighException()
 {
-    if (this->grade > 150)
-        std::cout <<
+    std::cout << "Grade too high exception called" << std::endl;
+    this->grade = 150;
 }
 
-void				GradeTooLowException();
-const std::string	getName();
-int					getGrade();
+void	Bureaucrat::GradeTooLowException()
+{
+    std::cout << "Grade too low exception called" << std::endl;
+    this->grade = 1;
+}
 
-void	operator++();
-void	operator--();
+const std::string	Bureaucrat::getName()
+{
+    return (this->name);
+}
+int					Bureaucrat::getGrade()
+{
+    return (this->grade);
+}
+
+void	Bureaucrat::operator++()
+{
+    try
+    {
+        this->grade++;
+        if (this->grade < 1)
+            throw (1);
+        else if (this->grade > 150)
+            throw (150);
+    }
+    catch(int grade)
+    {
+        if (grade == 1)
+            GradeTooLowException();
+        else if (grade == 150)
+            GradeTooHighException();
+    }
+}
+
+void	Bureaucrat::operator--()
+{
+    try
+    {
+        this->grade--;
+        if (this->grade < 1)
+            throw (1);
+        else if (this->grade > 150)
+            throw (150);
+    }
+    catch(int grade)
+    {
+        if (grade == 1)
+            GradeTooLowException();
+        else if (grade == 150)
+            GradeTooHighException();
+    }
+}
