@@ -12,19 +12,16 @@
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(/* args */)
+Bureaucrat::Bureaucrat(/* args */) : name("N/A"), grade(150)
 {
     std::cout << "Bureaucrat constructor called" << std::endl;
-    this->name = "N/A";
-    this->grade = 150;
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade)
+Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 {
     std::cout << "Bureaucrat constructor called" << std::endl;
     try
     {
-        this->name = name;
         this->grade = grade;
         if (grade < 1)
             throw (1);
@@ -56,12 +53,6 @@ Bureaucrat::~Bureaucrat()
     std::cout << "Bureaucrat destructor called" << std::endl;
 }
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat &f)
-{
-	os << f.getName() << ", bureaucrat grade " << f.getGrade() << std::endl;
-	return os;
-}
-
 void	Bureaucrat::GradeTooHighException()
 {
     std::cout << "Grade too high exception called" << std::endl;
@@ -78,7 +69,7 @@ const std::string	Bureaucrat::getName()
 {
     return (this->name);
 }
-int					Bureaucrat::getGrade()
+int		Bureaucrat::getGrade()
 {
     return (this->grade);
 }
@@ -119,4 +110,10 @@ void	Bureaucrat::operator--()
         else if (grade == 150)
             GradeTooHighException();
     }
+}
+
+std::ostream& operator<<(std::ostream &os, const Bureaucrat &f)
+{
+	os << f.getName() << ", bureaucrat grade " << f.getGrade() << std::endl;
+	return os;
 }
