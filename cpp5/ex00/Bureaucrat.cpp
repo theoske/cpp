@@ -17,7 +17,7 @@ Bureaucrat::Bureaucrat(/* args */) : name("N/A"), grade(150)
     std::cout << "Bureaucrat constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
+Bureaucrat::Bureaucrat(int grade) : name(name)
 {
     std::cout << "Bureaucrat constructor called" << std::endl;
     try
@@ -112,7 +112,7 @@ void	Bureaucrat::operator--()
     }
 }
 
-std::ostream& operator<<(std::ostream &os, const Bureaucrat &f)
+std::ostream& operator<<(std::ostream &os, Bureaucrat &f)
 {
 	os << f.getName() << ", bureaucrat grade " << f.getGrade() << std::endl;
 	return os;
