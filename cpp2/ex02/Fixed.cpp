@@ -206,7 +206,7 @@ float	Fixed::toFloat(void) const
 		sign = -1;
 		n = -n;
 	}
-	ret = (1.0f * n) / pow(2, 8);
+	ret = (1.0f * n) / (1 << 8);
 	ret *= sign;
 	return (ret);
 }
