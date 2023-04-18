@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:14:57 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/02/17 15:18:22 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/18 17:09:38 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,125 +14,59 @@
 
 int main(void)
 {
-	{
-		std::cout << "Grade: 1" << std::endl;
-		try
-		{
-			Bureaucrat	a("ske", 1);
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
-	}
-	std::cout << std::endl;
-	{
-		try
-		{
-			std::cout << "Grade: 150" << std::endl;
-			Bureaucrat	a("ske", 150);
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
-	}
-	std::cout << std::endl;
-	{
-		try
-		{
-			std::cout << "Grade: 50" << std::endl;
-			Bureaucrat	a("ske", 50);
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
-	}
-	std::cout << std::endl;
-	{
-		try
-		{
-			std::cout << "Grade: -1" << std::endl;
-			Bureaucrat	a("ske", -1);
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
-	}
-	std::cout << std::endl;
-	{
-		try
-		{
-			std::cout << "Grade: 155" << std::endl;
-			Bureaucrat	a("ske", 155);
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
-	}
-	std::cout << std::endl;
-	{
-		try
-		{
-			std::cout << "Grade: 150, Increment" << std::endl;
-			Bureaucrat	a("ske", 150);
-			std::cout << a << std::endl;
-			a.operator++();
-			std::cout << a << std::endl;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
-	}
-	std::cout << std::endl;
-	{
-		try
-		{
-			std::cout << "Grade: 1, Increment" << std::endl;
-			Bureaucrat	a("ske", 1);
-			std::cout << a << std::endl;
-			a.operator++();
-			std::cout << a << std::endl;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
-	}
-	std::cout << std::endl;
-	{
-		try
-		{
-			std::cout << "Grade: 1, Decrement" << std::endl;
-			Bureaucrat	a("ske", 1);
-			std::cout << a << std::endl;
-			a.operator--();
-			std::cout << a << std::endl;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
-	}
-	std::cout << std::endl;
-	{
-		try
-		{
-			std::cout << "Grade: 150, Decrement" << std::endl;
-			Bureaucrat	a("ske", 150);
-			std::cout << a << std::endl;
-			a.operator--();
-			std::cout << a << std::endl;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
-	}
+	std::cout << "-------- CREATE BUREAUCRATS -------" << std::endl;
+	Bureaucrat man1("Thierry", 80);
+	Bureaucrat man2("Lucie", 20);
+	Bureaucrat man3("Marie", 147);
 	
-	return (0);	
+	std::cout << "n1: " << man1.getName() << " Level : " << man1.getGrade() << std::endl;
+	std::cout << "n2: " << man2.getName() << " Level : " << man2.getGrade() << std::endl;
+	std::cout << "n3: " << man3.getName() << " Level : " << man3.getGrade() << std::endl;
+
+	std::cout << "-------- CREATE FORMS -------" << std::endl;
+	Form nbr1("ENGAGE", 120, 120);
+	Form nbr2("SUSPEND", 50, 150);
+	Form nbr3("FIRE", 5, 150);
+	Form *nbr4;
+	try
+	{
+		nbr4 = new Form("BAD", 151, 150);
+	}
+	catch(std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+		nbr4 = NULL;
+	}
+
+	std::cout << "------ OPERATOR FORM -------" << std::endl;
+	std::cout << nbr1 << std::endl;
+	std::cout << nbr2 << std::endl;
+	std::cout << nbr3 << std::endl;
+	std::cout << nbr4 << std::endl;
+
+	std::cout << "-------- SIGN FORM -------" << std::endl;
+	man1.signForm(nbr1);
+	man1.signForm(nbr2);
+	man1.signForm(nbr3);
+	std::cout << "---------------" << std::endl;
+	man2.signForm(nbr1);
+	man2.signForm(nbr2);
+	man2.signForm(nbr3);
+	std::cout << "---------------" << std::endl;
+	man3.signForm(nbr1);
+	man3.signForm(nbr2);
+	man3.signForm(nbr3);
+
+	std::cout << "------ INFO FORM -------" << std::endl;
+	std::cout << nbr1 << std::endl;
+	std::cout << nbr2 << std::endl;
+	std::cout << nbr3 << std::endl;
+
+	std::cout << "-------- OPERATOR << -------" << std::endl;
+	std::cout << man1 << std::endl;
+	std::cout << man2 << std::endl;
+	std::cout << man3 << std::endl;
+	std::cout << "----------------------------" << std::endl;
+
+	return (0);
 }

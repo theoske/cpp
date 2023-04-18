@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:12:08 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/02/17 15:12:22 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/18 17:08:01 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,11 @@ const std::string	Bureaucrat::getName()
 int		Bureaucrat::getGrade()
 {
     return (this->grade);
+}
+
+void	Bureaucrat::signForm(Form f)
+{
+	std::cout << "Bureaucrat: " << this->name << " signed form: " << f.getName() << std::endl;
 }
 
 void	Bureaucrat::operator++()

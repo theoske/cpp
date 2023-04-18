@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:20:25 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/18 16:59:58 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/18 17:08:47 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	Form::beSigned(Bureaucrat b)
 		if (b.getGrade() < this->grade_to_exe && b.getGrade() < this->grade_to_sign)
 		{
 			this->is_signed = 1;
-			std::cout << "Bureaucrat: " << b.getName() << " signed form: " << this->name << std::endl;
+			b.signForm(*this);
 		}
 		else
 			throw(1);
