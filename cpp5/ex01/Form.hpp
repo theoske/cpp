@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:10:19 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/17 18:06:43 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/18 16:46:26 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ public:
 	const int	getGradeExe();
 	std::string	getName();
 	std::string	isSigned();
+	void		beSigned(Bureaucrat b);
 };
 
 std::ostream& operator<<(std::ostream &os, Form &f);

@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:20:25 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/17 18:06:48 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/18 16:59:58 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,23 @@ std::ostream& operator<<(std::ostream &os, Form &f)
 {
 	os << f.getName() << ", form grade to sign: " << f.getGradeSign() << " grade to execute: " << f.getGradeExe() << " signed status: " << f.isSigned() << std::endl;
 	return os;
+}
+
+void	Form::beSigned(Bureaucrat b)
+{
+	try
+	{
+		if (b.getGrade() < this->grade_to_exe && b.getGrade() < this->grade_to_sign)
+		{
+			this->is_signed = 1;
+			std::cout << "Bureaucrat: " << b.getName() << " signed form: " << this->name << std::endl;
+		}
+		else
+			throw(1);
+	}
+	catch(int f)
+	{
+		std::cout << "Bureaucrat: " << b.getName() << " lower level than what is required to sign the form: " << this->name << std::endl;
+	}
+	
 }
