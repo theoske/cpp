@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:10:19 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/19 17:14:06 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/19 18:02:00 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Form
 		Form(const std::string name, int grade_to_exe, int grade_to_sign);
 		Form(const Form &f);
 		Form&operator=(const Form &f);
-		~Form();
+		virtual ~Form();
 
 		void			GradeTooLowException();
 		void			GradeTooHighException();
