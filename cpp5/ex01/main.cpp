@@ -6,11 +6,11 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:14:57 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/18 17:09:38 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/19 16:12:36 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main(void)
 {
@@ -42,20 +42,19 @@ int main(void)
 	std::cout << nbr1 << std::endl;
 	std::cout << nbr2 << std::endl;
 	std::cout << nbr3 << std::endl;
-	std::cout << nbr4 << std::endl;
 
 	std::cout << "-------- SIGN FORM -------" << std::endl;
-	man1.signForm(nbr1);
-	man1.signForm(nbr2);
-	man1.signForm(nbr3);
+	nbr1.beSigned(&man1);
+	nbr2.beSigned(&man1);
+	nbr3.beSigned(&man1);
 	std::cout << "---------------" << std::endl;
-	man2.signForm(nbr1);
-	man2.signForm(nbr2);
-	man2.signForm(nbr3);
+	nbr1.beSigned(&man2);
+	nbr2.beSigned(&man2);
+	nbr3.beSigned(&man2);
 	std::cout << "---------------" << std::endl;
-	man3.signForm(nbr1);
-	man3.signForm(nbr2);
-	man3.signForm(nbr3);
+	nbr1.beSigned(&man3);
+	nbr2.beSigned(&man3);
+	nbr3.beSigned(&man3);
 
 	std::cout << "------ INFO FORM -------" << std::endl;
 	std::cout << nbr1 << std::endl;

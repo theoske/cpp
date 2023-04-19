@@ -6,14 +6,16 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:10:19 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/18 16:46:26 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/19 16:10:42 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef	FORM_HPP
 # define	FORM_HPP
 
-#include "Bureaucrat.hpp"
+# include "Bureaucrat.hpp"
+
+class	Bureaucrat;
 
 class Form
 {
@@ -23,7 +25,7 @@ private:
 	int const			grade_to_sign;
 	int const			grade_to_exe;
 public:
-	Form(/* args */);
+	Form();
 	Form(const std::string name, int grade_to_exe, int grade_to_sign);
 	Form(const Form &f);
 	Form&operator=(const Form &f);
@@ -31,11 +33,11 @@ public:
 
 	void		GradeTooLowException();
 	void		GradeTooHighException();
-	const int	getGradeSign();
-	const int	getGradeExe();
+	int	getGradeSign() const;
+	int	getGradeExe() const;
 	std::string	getName();
 	std::string	isSigned();
-	void		beSigned(Bureaucrat b);
+	void		beSigned(Bureaucrat *b);
 };
 
 std::ostream& operator<<(std::ostream &os, Form &f);

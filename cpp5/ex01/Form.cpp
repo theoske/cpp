@@ -6,25 +6,25 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:20:25 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/18 17:08:47 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/19 16:10:54 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form() : name("N/A"), grade_to_exe(150), grade_to_sign(150), is_signed(0)
+Form::Form() : name("N/A"), is_signed(0), grade_to_sign(150), grade_to_exe(150)
 {
 	std::cout << "Default Form constructor called" << std::endl;
 }
 
-Form::Form(const std::string name, int grade_to_exe, int grade_to_sign) : name(name), grade_to_exe(grade_to_exe), grade_to_sign(grade_to_sign), is_signed(0)
+Form::Form(const std::string name, int grade_to_exe, int grade_to_sign) : name(name), is_signed(0), grade_to_sign(grade_to_sign), grade_to_exe(grade_to_exe)
 {
     std::cout << "Form constructor called" << std::endl;
     try
     {
         if (grade_to_exe < 1 || grade_to_sign < 1)
             throw (1);
-        else if (grade_to_exe < 150 || grade_to_sign < 150)
+        else if (grade_to_exe > 150 || grade_to_sign > 150)
             throw (150);
     }
     catch(int grade)
@@ -34,6 +34,11 @@ Form::Form(const std::string name, int grade_to_exe, int grade_to_sign) : name(n
         else if (grade == 150)
             GradeTooHighException();
     }
+}
+
+Form::Form(const Form &f) : name(f.name), is_signed(f.is_signed), grade_to_sign(f.grade_to_sign), grade_to_exe(f.grade_to_exe)
+{
+    *this = f;
 }
 
 Form  &Form::operator=(const Form &f)
@@ -62,12 +67,12 @@ std::string	Form::getName()
 	return (this->name);
 }
 
-const int	Form::getGradeSign()
+int	Form::getGradeSign() const
 {
 	return (this->grade_to_sign);
 }
 
-const int	Form::getGradeExe()
+int	Form::getGradeExe() const
 {
 	return (this->grade_to_exe);
 }
@@ -85,21 +90,20 @@ std::ostream& operator<<(std::ostream &os, Form &f)
 	return os;
 }
 
-void	Form::beSigned(Bureaucrat b)
+void	Form::beSigned(Bureaucrat *b)
 {
 	try
 	{
-		if (b.getGrade() < this->grade_to_exe && b.getGrade() < this->grade_to_sign)
+		if (b->getGrade() < this->grade_to_sign)
 		{
 			this->is_signed = 1;
-			b.signForm(*this);
+			b->signForm(this);
 		}
 		else
 			throw(1);
 	}
 	catch(int f)
 	{
-		std::cout << "Bureaucrat: " << b.getName() << " lower level than what is required to sign the form: " << this->name << std::endl;
+		std::cout << "Bureaucrat: " << b->getName() << " lower level than what is required to sign the form: " << this->name << std::endl;
 	}
-	
 }

@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:12:25 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/18 17:07:35 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/19 16:10:02 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <iostream>
 # include <string>
 # include "Form.hpp"
+
+class	Form;
 
 class Bureaucrat
 {
@@ -34,7 +36,7 @@ class Bureaucrat
 		void				GradeTooLowException();
 		const std::string	getName();
 		int					getGrade();
-		void				signForm(Form f);
+		void				signForm(Form *f);
 
 		void	operator++();
 		void	operator--();
