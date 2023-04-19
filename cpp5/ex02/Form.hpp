@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:10:19 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/19 16:10:42 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:14:06 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,25 @@ class	Bureaucrat;
 
 class Form
 {
-private:
-	std::string const 	name;
-	bool				is_signed;
-	int const			grade_to_sign;
-	int const			grade_to_exe;
-public:
-	Form();
-	Form(const std::string name, int grade_to_exe, int grade_to_sign);
-	Form(const Form &f);
-	Form&operator=(const Form &f);
-	~Form();
+	private:
+		std::string const 	name;
+		bool				is_signed;
+		int const			grade_to_sign;
+		int const			grade_to_exe;
+	public:
+		Form();
+		Form(const std::string name, int grade_to_exe, int grade_to_sign);
+		Form(const Form &f);
+		Form&operator=(const Form &f);
+		~Form();
 
-	void		GradeTooLowException();
-	void		GradeTooHighException();
-	int	getGradeSign() const;
-	int	getGradeExe() const;
-	std::string	getName();
-	std::string	isSigned();
-	void		beSigned(Bureaucrat *b);
+		void			GradeTooLowException();
+		void			GradeTooHighException();
+		int				getGradeSign() const;
+		int				getGradeExe() const;
+		std::string		getName();
+		std::string		isSigned();
+		virtual void	beSigned(Bureaucrat *b) = 0;
 };
 
 std::ostream& operator<<(std::ostream &os, Form &f);
