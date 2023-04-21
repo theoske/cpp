@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 16:17:30 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/21 14:35:26 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/21 15:11:47 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
 	std::cout << "PresidentialPardonForm destructor called" << std::endl;
 }
 
-void	PresidentialPardonForm::execute(Bureaucrat &executor) const
+int	PresidentialPardonForm::execute(Bureaucrat &executor) const
 {
 	try
 	{
@@ -56,5 +56,7 @@ void	PresidentialPardonForm::execute(Bureaucrat &executor) const
 			std::cout << "Executor " << executor.getName() << " grade to low (" << executor.getGrade() << ") to execute Form " << this->name << " (" << this->grade_to_exe << ")" << std::endl;
 		else if (error == 1)
 			std::cout << "Form: " << this->name << " is not signed" << std::endl;
+		return (-1);
 	}
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 16:17:34 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/21 14:25:49 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/21 15:13:15 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class PresidentialPardonForm : public Form
 		PresidentialPardonForm &operator=(const PresidentialPardonForm &f);
 		virtual ~PresidentialPardonForm();
 
-		void	execute(Bureaucrat &executor) const;
+		virtual int	execute(Bureaucrat &executor) const;
 };
 
 #endif

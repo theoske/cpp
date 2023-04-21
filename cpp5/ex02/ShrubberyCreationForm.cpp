@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 16:17:42 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/21 15:02:04 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/21 15:12:48 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 	std::cout << "ShrubberyCreationForm destructor called" << std::endl;
 }
 
-void	ShrubberyCreationForm::execute(Bureaucrat &executor) const
+int	ShrubberyCreationForm::execute(Bureaucrat &executor) const
 {
 	static int	i = 0;
 	
@@ -71,5 +71,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat &executor) const
 			std::cout << "Executor " << executor.getName() << " grade to low (" << executor.getGrade() << ") to execute Form " << this->name << " (" << this->grade_to_exe << ")" << std::endl;
 		else if (error == 1)
 			std::cout << "Form: " << this->name << " is not signed" << std::endl;
+		return (-1);
 	}
+	return (0);
 }

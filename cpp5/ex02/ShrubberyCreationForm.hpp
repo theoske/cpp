@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 16:17:45 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/21 15:01:35 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/21 15:12:59 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class ShrubberyCreationForm : public Form
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &f);
 		virtual ~ShrubberyCreationForm();
 
-		void	execute(Bureaucrat &executor) const;
+		virtual int	execute(Bureaucrat &executor) const;
 };
 
 #endif

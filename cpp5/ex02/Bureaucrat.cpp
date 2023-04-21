@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:12:08 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/21 13:56:46 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/21 15:13:41 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,4 +121,12 @@ std::ostream& operator<<(std::ostream &os, Bureaucrat &f)
 {
 	os << f.getName() << ", bureaucrat grade " << f.getGrade() << std::endl;
 	return os;
+}
+
+void	Bureaucrat::executeForm(Form &form)
+{
+	if (form.execute(*this) == 0)
+		std::cout << "Bureaucrat: " << this->name << " executed " << form.getName() << std::endl;
+	else
+		std::cout << "Error: Bureaucrat: " << this->name << " cannot execute " << form.getName() << std::endl;
 }

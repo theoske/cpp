@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:20:25 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/21 14:35:40 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/21 15:11:23 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ void	Form::beSigned(Bureaucrat *b)
 	}
 }
 
-void	Form::execute(Bureaucrat &executor) const
+int	Form::execute(Bureaucrat &executor) const
 {
 	try
 	{
@@ -125,5 +125,7 @@ void	Form::execute(Bureaucrat &executor) const
 			std::cout << "Executor " << executor.getName() << " grade to low (" << executor.getGrade() << ") to execute Form " << this->name << " (" << this->grade_to_exe << ")" << std::endl;
 		else if (error == 1)
 			std::cout << "Form: " << this->name << " is not signed" << std::endl;
+		return (-1);
 	}
+	return (0);
 }

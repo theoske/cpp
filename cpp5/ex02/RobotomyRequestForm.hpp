@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 16:17:39 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/21 14:39:34 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/21 15:12:27 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class RobotomyRequestForm : public Form
 		RobotomyRequestForm &operator=(const RobotomyRequestForm &f);
 		virtual ~RobotomyRequestForm();
 
-		void	execute(Bureaucrat &executor) const;
+		virtual int	execute(Bureaucrat &executor) const;
 };
 
 #endif
