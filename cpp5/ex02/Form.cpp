@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:20:25 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/19 16:10:54 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/21 14:35:40 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,25 @@ void	Form::beSigned(Bureaucrat *b)
 	catch(int f)
 	{
 		std::cout << "Bureaucrat: " << b->getName() << " lower level than what is required to sign the form: " << this->name << std::endl;
+	}
+}
+
+void	Form::execute(Bureaucrat &executor) const
+{
+	try
+	{
+		if (this->is_signed != 1)
+			throw(1);
+		else if (this->getGradeExe() < executor.getGrade())
+			throw(2);
+		else
+			std::cout << "Form: " << this->name << " executed" << std::endl;
+	}
+	catch(int error)
+	{
+		if (error == 2)
+			std::cout << "Executor " << executor.getName() << " grade to low (" << executor.getGrade() << ") to execute Form " << this->name << " (" << this->grade_to_exe << ")" << std::endl;
+		else if (error == 1)
+			std::cout << "Form: " << this->name << " is not signed" << std::endl;
 	}
 }

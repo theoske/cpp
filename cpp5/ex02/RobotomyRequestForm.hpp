@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 16:17:39 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/21 13:18:00 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/21 14:39:34 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,15 @@ class RobotomyRequestForm : public Form
 		bool				is_signed;
 		int const			grade_to_sign;
 		int const			grade_to_exe;
+		std::string			target;
 	public:
 		RobotomyRequestForm();
 		RobotomyRequestForm(const std::string name, std::string target);
 		RobotomyRequestForm(const RobotomyRequestForm &f);
 		RobotomyRequestForm &operator=(const RobotomyRequestForm &f);
 		virtual ~RobotomyRequestForm();
+
+		void	execute(Bureaucrat &executor) const;
 };
 
 #endif

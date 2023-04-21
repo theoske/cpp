@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:12:25 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/21 13:24:41 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/21 13:56:12 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ class Bureaucrat
 		const std::string	getName();
 		int					getGrade();
 		void				signForm(Form *f);
-		void				execute(Bureaucrat const &executor) const;
 
 		void	operator++();
 		void	operator--();

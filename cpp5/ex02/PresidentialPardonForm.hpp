@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 16:17:34 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/21 13:23:04 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/21 14:25:49 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class PresidentialPardonForm : public Form
 		bool				is_signed;
 		int const			grade_to_sign;
 		int const			grade_to_exe;
+		std::string			target;
 	public:
 		PresidentialPardonForm();
 		PresidentialPardonForm(const std::string name, std::string target);
@@ -32,7 +33,7 @@ class PresidentialPardonForm : public Form
 		PresidentialPardonForm &operator=(const PresidentialPardonForm &f);
 		virtual ~PresidentialPardonForm();
 
-		
+		void	execute(Bureaucrat &executor) const;
 };
 
 #endif

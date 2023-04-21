@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 16:17:42 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/21 13:17:43 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/21 15:02:04 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string name, std::string
 	// std::string	file = target;
 	
     std::cout << "ShrubberyCreationForm constructor called" << std::endl;
+	this->target = target;
 	// file.append("_shrubbery");
 	// std::ofstream outfile (file);
 	// outfile << "0" << std::endl << "1" << std::endl;
@@ -42,4 +43,33 @@ ShrubberyCreationForm  &ShrubberyCreationForm::operator=(const ShrubberyCreation
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 	std::cout << "ShrubberyCreationForm destructor called" << std::endl;
+}
+
+void	ShrubberyCreationForm::execute(Bureaucrat &executor) const
+{
+	static int	i = 0;
+	
+	try
+	{
+		if (this->is_signed != 1)
+			throw(1);
+		else if (this->getGradeExe() < executor.getGrade())
+			throw(2);
+		else
+		{
+			std::string	file = this->target;
+
+			file.append("_shrubbery");
+			std::ofstream outfile (file);
+			outfile << "0 0" << std::endl << "1 1" << std::endl;
+			outfile.close();
+		}
+	}
+	catch(int error)
+	{
+		if (error == 2)
+			std::cout << "Executor " << executor.getName() << " grade to low (" << executor.getGrade() << ") to execute Form " << this->name << " (" << this->grade_to_exe << ")" << std::endl;
+		else if (error == 1)
+			std::cout << "Form: " << this->name << " is not signed" << std::endl;
+	}
 }

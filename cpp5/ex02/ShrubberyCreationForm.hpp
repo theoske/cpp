@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 16:17:45 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/21 13:17:16 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/21 15:01:35 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,15 @@ class ShrubberyCreationForm : public Form
 		bool				is_signed;
 		int const			grade_to_sign;
 		int const			grade_to_exe;
+		std::string			target;
 	public:
 		ShrubberyCreationForm();
 		ShrubberyCreationForm(const std::string name, std::string target);
 		ShrubberyCreationForm(const ShrubberyCreationForm &f);
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &f);
 		virtual ~ShrubberyCreationForm();
+
+		void	execute(Bureaucrat &executor) const;
 };
 
 #endif

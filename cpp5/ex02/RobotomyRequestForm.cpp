@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 16:17:36 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/21 13:18:06 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/21 14:52:50 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ RobotomyRequestForm::RobotomyRequestForm() : name("N/A"), is_signed(0), grade_to
 RobotomyRequestForm::RobotomyRequestForm(const std::string name, std::string target) : name(name), is_signed(0), grade_to_sign(72), grade_to_exe(45)
 {
     std::cout << "RobotomyRequestForm constructor called" << std::endl;
+	this->target = target;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &f) : name(f.name), is_signed(f.is_signed), grade_to_sign(f.grade_to_sign), grade_to_exe(f.grade_to_exe)
@@ -36,4 +37,33 @@ RobotomyRequestForm  &RobotomyRequestForm::operator=(const RobotomyRequestForm &
 RobotomyRequestForm::~RobotomyRequestForm()
 {
 	std::cout << "RobotomyRequestForm destructor called" << std::endl;
+}
+
+void	RobotomyRequestForm::execute(Bureaucrat &executor) const
+{
+	static int	i = 0;
+	
+	try
+	{
+		if (this->is_signed != 1)
+			throw(1);
+		else if (this->getGradeExe() < executor.getGrade())
+			throw(2);
+		else
+		{
+			std::cout << "*bruit de perceuse*" << std::endl;
+			if (i % 2)
+				std::cout << "La target: " << this->target << " a ete robotomise" << std::endl;
+			else
+				std::cout << "La robotomie sur " << this->target << "a echoue" << std::endl;
+			i++;
+		}
+	}
+	catch(int error)
+	{
+		if (error == 2)
+			std::cout << "Executor " << executor.getName() << " grade to low (" << executor.getGrade() << ") to execute Form " << this->name << " (" << this->grade_to_exe << ")" << std::endl;
+		else if (error == 1)
+			std::cout << "Form: " << this->name << " is not signed" << std::endl;
+	}
 }

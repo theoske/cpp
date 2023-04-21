@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:12:08 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/21 13:32:10 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/21 13:56:46 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,9 +121,4 @@ std::ostream& operator<<(std::ostream &os, Bureaucrat &f)
 {
 	os << f.getName() << ", bureaucrat grade " << f.getGrade() << std::endl;
 	return os;
-}
-
-void	Bureaucrat::execute(Bureaucrat const &executor) const
-{
-	
 }
