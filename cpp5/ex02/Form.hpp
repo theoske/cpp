@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:10:19 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/21 15:10:38 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/21 15:19:26 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define	FORM_HPP
 
 # include "Bureaucrat.hpp"
+# include "PresidentialPardonForm.hpp"
+# include "RobotomyRequestForm.hpp"
+# include "ShrubberyCreationForm.hpp"
 
 class	Bureaucrat;
 
@@ -37,7 +40,7 @@ class Form
 		int				getGradeExe() const;
 		std::string		getName();
 		std::string		isSigned();
-		virtual void	beSigned(Bureaucrat *b) = 0;
+		virtual void	beSigned(Bureaucrat *b);
 		virtual int		execute(Bureaucrat &executor) const;
 };
 
