@@ -6,31 +6,33 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 16:17:39 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/21 15:12:27 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/26 18:42:08 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBO_HPP
-# define ROBO_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 
 # include "Form.hpp"
+# include "Bureaucrat.hpp"
+# include <fstream>
 
 class RobotomyRequestForm : public Form
 {
-	private:
-		std::string const 	name;
-		bool				is_signed;
-		int const			grade_to_sign;
-		int const			grade_to_exe;
-		std::string			target;
+
 	public:
-		RobotomyRequestForm();
-		RobotomyRequestForm(const std::string name, std::string target);
-		RobotomyRequestForm(const RobotomyRequestForm &f);
-		RobotomyRequestForm &operator=(const RobotomyRequestForm &f);
+
+		RobotomyRequestForm(std::string target);
+		RobotomyRequestForm(RobotomyRequestForm const &src);
 		virtual ~RobotomyRequestForm();
 
-		virtual int	execute(Bureaucrat &executor) const;
+		RobotomyRequestForm &operator=( RobotomyRequestForm const & rhs );
+
+		virtual int	execute(Bureaucrat const & executor) const;
+
+	private:
+		RobotomyRequestForm();
+		std::string const	_target;
 };
 
 #endif

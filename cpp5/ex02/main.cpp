@@ -6,11 +6,15 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:14:57 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/21 15:17:00 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/26 18:34:58 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main(void)
 {
@@ -24,63 +28,63 @@ int main(void)
 	std::cout << "n3: " << man3.getName() << " Level : " << man3.getGrade() << std::endl;
 
 	std::cout << "-------- CREATE FORMS -------" << std::endl;
-	Form nbr1 = new ShrubberyCreationForm("Tree1");
-	Form nbr2 = new RobotomyRequestForm("Roboture");
-	Form nbr3 = new PresidentialPardonForm("Slartibartfast");
+	Form *nbr1 = new ShrubberyCreationForm("Tree1");
+	Form *nbr2 = new RobotomyRequestForm("Roboture");
+	Form *nbr3 = new PresidentialPardonForm("Slartibartfast");
 
 	std::cout << "------ OPERATOR FORM -------" << std::endl;
-	std::cout << nbr1 << std::endl;
-	std::cout << nbr2 << std::endl;
-	std::cout << nbr3 << std::endl;
+	std::cout << *nbr1 << std::endl;
+	std::cout << *nbr2 << std::endl;
+	std::cout << *nbr3 << std::endl;
 
 	std::cout << "-------- SIGN FORM -------" << std::endl;
-	man1.signForm(nbr1);
-	man1.signForm(nbr2);
-	man1.signForm(nbr3);
-	man1.executeForm(nbr1);
-	man1.executeForm(nbr2);
-	man1.executeForm(nbr3);
-	man2.executeForm(nbr1);
-	man2.executeForm(nbr2);
-	man2.executeForm(nbr3);
-	man3.executeForm(nbr1);
-	man3.executeForm(nbr2);
-	man3.executeForm(nbr3);
+	man1.signForm(*nbr1);
+	man1.signForm(*nbr2);
+	man1.signForm(*nbr3);
+	man1.executeForm(*nbr1);
+	man1.executeForm(*nbr2);
+	man1.executeForm(*nbr3);
+	man2.executeForm(*nbr1);
+	man2.executeForm(*nbr2);
+	man2.executeForm(*nbr3);
+	man3.executeForm(*nbr1);
+	man3.executeForm(*nbr2);
+	man3.executeForm(*nbr3);
+	
+	// std::cout << "---------------" << std::endl;
+	// man2.signForm(*nbr1);
+	// man2.signForm(*nbr2);
+	// man2.signForm(*nbr3);
 
-	std::cout << "---------------" << std::endl;
-	man2.signForm(nbr1);
-	man2.signForm(nbr2);
-	man2.signForm(nbr3);
+	// man1.executeForm(*nbr1);
+	// man1.executeForm(*nbr2);
+	// man1.executeForm(*nbr3);
+	// man2.executeForm(*nbr1);
+	// man2.executeForm(*nbr2);
+	// man2.executeForm(*nbr3);
+	// man3.executeForm(*nbr1);
+	// man3.executeForm(*nbr2);
+	// man3.executeForm(*nbr3);
 
-	man1.executeForm(nbr1);
-	man1.executeForm(nbr2);
-	man1.executeForm(nbr3);
-	man2.executeForm(nbr1);
-	man2.executeForm(nbr2);
-	man2.executeForm(nbr3);
-	man3.executeForm(nbr1);
-	man3.executeForm(nbr2);
-	man3.executeForm(nbr3);
-
-	std::cout << "---------------" << std::endl;
-	man3.signForm(nbr1);
-	man3.signForm(nbr2);
-	man3.signForm(nbr3);
-	man1.executeForm(nbr1);
-	man1.executeForm(nbr2);
-	man1.executeForm(nbr3);
-	man2.executeForm(nbr1);
-	man2.executeForm(nbr2);
-	man2.executeForm(nbr3);
-	man3.executeForm(nbr1);
-	man3.executeForm(nbr2);
-	man3.executeForm(nbr3);
-	man3.executeForm(nbr2);
+	// std::cout << "---------------" << std::endl;
+	// man3.signForm(*nbr1);
+	// man3.signForm(*nbr2);
+	// man3.signForm(*nbr3);
+	// man1.executeForm(*nbr1);
+	// man1.executeForm(*nbr2);
+	// man1.executeForm(*nbr3);
+	// man2.executeForm(*nbr1);
+	// man2.executeForm(*nbr2);
+	// man2.executeForm(*nbr3);
+	// man3.executeForm(*nbr1);
+	// man3.executeForm(*nbr2);
+	// man3.executeForm(*nbr3);
+	// man3.executeForm(*nbr2);
 
 	std::cout << "------ INFO FORM -------" << std::endl;
-	std::cout << nbr1 << std::endl;
-	std::cout << nbr2 << std::endl;
-	std::cout << nbr3 << std::endl;
+	std::cout << *nbr1 << std::endl;
+	std::cout << *nbr2 << std::endl;
+	std::cout << *nbr3 << std::endl;
 
 	std::cout << "-------- OPERATOR << -------" << std::endl;
 	std::cout << man1 << std::endl;

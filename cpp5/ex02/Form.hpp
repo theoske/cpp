@@ -6,44 +6,49 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:10:19 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/21 15:19:26 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/26 18:40:29 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	FORM_HPP
-# define	FORM_HPP
+#ifndef FORM_HPP
+# define FORM_HPP
 
 # include "Bureaucrat.hpp"
-# include "PresidentialPardonForm.hpp"
-# include "RobotomyRequestForm.hpp"
-# include "ShrubberyCreationForm.hpp"
+# include <iostream>
 
-class	Bureaucrat;
+class Bureaucrat;
 
 class Form
 {
-	private:
-		std::string const 	name;
-		bool				is_signed;
-		int const			grade_to_sign;
-		int const			grade_to_exe;
+
 	public:
-		Form();
-		Form(const std::string name, int grade_to_exe, int grade_to_sign);
-		Form(const Form &f);
-		Form&operator=(const Form &f);
+
+		Form(std::string name, int gradeSign, int gradeExec);
+		Form(Form const &src);
 		virtual ~Form();
 
-		void			GradeTooLowException();
-		void			GradeTooHighException();
+		Form &		operator=(Form const & rhs);
+
+		std::string		getName() const;
+		bool			getSigned() const;
 		int				getGradeSign() const;
-		int				getGradeExe() const;
-		std::string		getName();
-		std::string		isSigned();
-		virtual void	beSigned(Bureaucrat *b);
-		virtual int		execute(Bureaucrat &executor) const;
+		int				getGradeExec() const;
+		int				beSigned(Bureaucrat const &bureaucrat);
+		void 			GradeTooHighException() const;
+		void 			GradeTooLowException() const;
+		void			FormNotSignedException() const;
+		virtual int		execute(Bureaucrat const & executor) const;
+
+	private:
+
+		Form();
+		std::string const	_name;
+		bool				_signed;
+		int const			_gradeSign;
+		int const			_gradeExec;
+
 };
 
-std::ostream& operator<<(std::ostream &os, Form &f);
+std::ostream &	operator<<(std::ostream &o, Form const &rhs);
 
 #endif
