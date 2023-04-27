@@ -6,13 +6,18 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 16:17:36 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/26 18:44:22 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/27 17:10:26 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form("RobotomyRequestForm", 72, 45), _target(target)
+{
+	std::cout << "RobotomyRequestForm constructor called" << std::endl;
+}
+
+RobotomyRequestForm::RobotomyRequestForm(std::string name, std::string target) : Form(name, 72, 45), _target(target)
 {
 	std::cout << "RobotomyRequestForm constructor called" << std::endl;
 }

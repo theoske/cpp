@@ -6,13 +6,18 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 16:17:42 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/26 18:44:37 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/27 17:11:18 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form("ShrubberyCreationForm", 145, 137), _target(target)
+{
+	std::cout << "ShrubberyCreationForm constructor called" << std::endl;
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(std::string name, std::string target) : Form(name, 145, 137), _target(target)
 {
 	std::cout << "ShrubberyCreationForm constructor called" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 16:17:34 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/26 18:42:04 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/27 17:08:28 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class PresidentialPardonForm : public Form
 	public:
 
 		PresidentialPardonForm(std::string target);
+		PresidentialPardonForm(std::string name, std::string target);
 		PresidentialPardonForm( PresidentialPardonForm const & src );
 		virtual ~PresidentialPardonForm();
 

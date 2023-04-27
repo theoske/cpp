@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:14:57 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/27 16:13:47 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/27 17:20:04 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int main(void)
 	Intern intern;
 	Form	*rrf;
 	
-	rrf = intern.makeForm("robotomy request", "Bender");
+	rrf = intern.makeForm("schruberry creation", "Bender");
 
 	std::cout << "------ INFO FORM -------" << std::endl;
 	std::cout << *nbr1 << std::endl;

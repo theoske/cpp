@@ -6,13 +6,18 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 16:17:30 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/26 18:45:19 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/27 17:09:38 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("PresidentialPardonForm", 25, 5), _target(target)
+{
+	std::cout << "PresidentialPardonForm constructor called" << std::endl;
+}
+
+PresidentialPardonForm::PresidentialPardonForm(std::string name, std::string target) : Form(name, 25, 5), _target(target)
 {
 	std::cout << "PresidentialPardonForm constructor called" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 16:17:45 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/26 18:42:12 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/27 17:09:02 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class ShrubberyCreationForm : public Form
 	public:
 
 		ShrubberyCreationForm(std::string target);
+		ShrubberyCreationForm(std::string name, std::string target);
 		ShrubberyCreationForm( ShrubberyCreationForm const & src );
 		virtual ~ShrubberyCreationForm();
 

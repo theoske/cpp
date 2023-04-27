@@ -6,12 +6,11 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 15:26:44 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/27 16:14:49 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/27 17:17:23 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
-#include <map>
 
 Intern::Intern()
 {
@@ -43,17 +42,24 @@ Intern	&Intern::operator=(Intern const &rhs)
 
 Form	*Intern::makeForm(std::string name, std::string target)
 {
-	static const std::map<std::string, std::function<Form*(std::string)> > formFactories = {
-        {"ShrubberyCreationForm", [](std::string target){ return new ShrubberyCreationForm(target); }},
-        {"RobotomyRequestForm", [](std::string target){ return new RobotomyRequestForm(target); }},
-        {"PresidentialPardonForm", [](std::string target){ return new PresidentialPardonForm(target); }},
-    };
-	auto it = formFactories.find(name);
-    if (it != formFactories.end())
+	Form	*form[3] = {new PresidentialPardonForm(name, target),
+						new RobotomyRequestForm(name, target),
+						new ShrubberyCreationForm(name, target)};
+	std::string form_name[3] = {"schruberry creation",
+								"robotomy request",
+								"presidential pardon"};
+								
+	for (int i = 0; i < 3; i++)
 	{
-		std::cout << "Intern creates " << name << std::endl;
-        return (it->second(target));
-    }
+		if (name == form_name[i])
+		{
+			std::cout << "Intern creates " << name << std::endl;
+			return (form[i]);
+		}
+		else
+			delete form[i];
+	}
 	std::cout << "Form name not found" << std::endl;
 	return (0);
 }
+
