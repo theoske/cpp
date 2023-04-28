@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:20:25 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/19 16:10:54 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/28 17:55:58 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ Form::Form(const std::string name, int grade_to_exe, int grade_to_sign) : name(n
     catch(int grade)
     {
         if (grade == 1)
-            GradeTooLowException();
-        else if (grade == 150)
             GradeTooHighException();
+        else if (grade == 150)
+            GradeTooLowException();
     }
 }
 
@@ -43,7 +43,10 @@ Form::Form(const Form &f) : name(f.name), is_signed(f.is_signed), grade_to_sign(
 
 Form  &Form::operator=(const Form &f)
 {
-    (void) f;
+    this->is_signed = f.is_signed;
+	this->name = f.name;
+	this->grade_to_sign = f.grade_to_sign;
+	this->grade_to_exe = f.grade_to_exe;
     return (*this);
 }
 

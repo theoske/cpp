@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:12:08 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/19 16:10:15 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/28 17:53:19 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name)
     catch(int grade)
     {
         if (grade == 1)
-            GradeTooLowException();
-        else if (grade == 150)
             GradeTooHighException();
+        else if (grade == 150)
+            GradeTooLowException();
     }
 }
 
@@ -44,7 +44,8 @@ Bureaucrat::Bureaucrat(const Bureaucrat &f)
 
 Bureaucrat  &Bureaucrat::operator=(const Bureaucrat &f)
 {
-    (void) f;
+    this->grade = f.grade;
+	this->name = f.name;
     return (*this);
 }
 
@@ -56,13 +57,13 @@ Bureaucrat::~Bureaucrat()
 void	Bureaucrat::GradeTooHighException()
 {
     std::cout << "Grade too high exception called" << std::endl;
-    this->grade = 150;
+    this->grade = 1;
 }
 
 void	Bureaucrat::GradeTooLowException()
 {
     std::cout << "Grade too low exception called" << std::endl;
-    this->grade = 1;
+    this->grade = 150;
 }
 
 const std::string	Bureaucrat::getName()
@@ -83,25 +84,6 @@ void	Bureaucrat::operator++()
 {
     try
     {
-        this->grade++;
-        if (this->grade < 1)
-            throw (1);
-        else if (this->grade > 150)
-            throw (150);
-    }
-    catch(int grade)
-    {
-        if (grade == 1)
-            GradeTooLowException();
-        else if (grade == 150)
-            GradeTooHighException();
-    }
-}
-
-void	Bureaucrat::operator--()
-{
-    try
-    {
         this->grade--;
         if (this->grade < 1)
             throw (1);
@@ -111,9 +93,28 @@ void	Bureaucrat::operator--()
     catch(int grade)
     {
         if (grade == 1)
-            GradeTooLowException();
-        else if (grade == 150)
             GradeTooHighException();
+        else if (grade == 150)
+            GradeTooLowException();
+    }
+}
+
+void	Bureaucrat::operator--()
+{
+    try
+    {
+        this->grade++;
+        if (this->grade < 1)
+            throw (1);
+        else if (this->grade > 150)
+            throw (150);
+    }
+    catch(int grade)
+    {
+        if (grade == 1)
+            GradeTooHighException();
+        else if (grade == 150)
+            GradeTooLowException();
     }
 }
 

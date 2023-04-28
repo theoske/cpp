@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:12:25 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/19 16:10:02 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/28 17:52:05 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ class	Form;
 class Bureaucrat
 {
 	private:
-		const std::string	name;
-		int					grade; // de 150 a 1
+		std::string	name;
+		int			grade; // de 150 a 1
 
 	public:
 		Bureaucrat(/* args */);
