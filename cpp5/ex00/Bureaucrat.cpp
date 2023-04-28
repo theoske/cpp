@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:12:08 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/28 17:43:39 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/28 18:05:02 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name)
     }
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &f)
+Bureaucrat::Bureaucrat(const Bureaucrat &f) : name(f.name), grade(f.grade)
 {
     *this = f;
 }

@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:12:25 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/26 18:25:08 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/28 18:07:40 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Bureaucrat
 {
 
 	public:
-
+		Bureaucrat();
 		Bureaucrat(std::string name, int grade);
 		Bureaucrat(Bureaucrat const &src);
 		~Bureaucrat(void);
@@ -31,8 +31,8 @@ class Bureaucrat
 
 		std::string	getName(void) const;
 		int			getGrade(void) const;
-		void		incrementGrade(void);
-		void		decrementGrade(void);
+		void		operator++();
+		void		operator--();
 		void		signForm(Form &form);
 		void		executeForm(Form const &form);
 
@@ -40,9 +40,7 @@ class Bureaucrat
 		void GradeTooLowException() const;
 
 	private:
-
-		Bureaucrat(void);
-		std::string const	_name;
+		std::string 		_name;
 		int					_grade;
 
 };

@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:12:08 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/26 18:41:32 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/28 18:08:32 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,32 @@
 
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(150)
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "Bureaucrat default constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
+Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name)
 {
-	std::cout << "Parametric constructor called" << std::endl;
-	if (grade < 1)
-		Bureaucrat::GradeTooHighException();
-	else if (grade > 150)
-		Bureaucrat::GradeTooLowException();
-	else
-		this->_grade = grade;
+    std::cout << "Bureaucrat constructor called" << std::endl;
+    try
+    {
+        this->_grade = grade;
+        if (grade < 1)
+            throw (1);
+        else if (grade > 150)
+            throw (150);
+    }
+    catch(int grade)
+    {
+        if (grade == 1)
+            GradeTooHighException();
+        else if (grade == 150)
+            GradeTooLowException();
+    }
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const &src) : _name(src._name)
+Bureaucrat::Bureaucrat(Bureaucrat const &f) : _name(f._name), _grade(f._grade)
 {
-	*this = src;
+	*this = f;
 }
 
 Bureaucrat::~Bureaucrat(void)
@@ -38,10 +47,10 @@ Bureaucrat::~Bureaucrat(void)
 	std::cout << "Destructor called" << std::endl;
 }
 
-Bureaucrat	&Bureaucrat::operator=(Bureaucrat const &rhs)
+Bureaucrat	&Bureaucrat::operator=(Bureaucrat const &f)
 {
-	if (this != &rhs)
-		this->_grade = rhs._grade;
+	this->_grade = f._grade;
+	this->_name = f._name;
 	return (*this);
 }
 
@@ -55,20 +64,42 @@ int			Bureaucrat::getGrade(void) const
 	return (this->_grade);
 }
 
-void		Bureaucrat::incrementGrade(void)
+void	Bureaucrat::operator++()
 {
-	if (this->_grade - 1 < 1)
-		Bureaucrat::GradeTooHighException();
-	else
-		this->_grade--;
+    try
+    {
+        this->_grade--;
+        if (this->_grade < 1)
+            throw (1);
+        else if (this->_grade > 150)
+            throw (150);
+    }
+    catch(int grade)
+    {
+        if (grade == 1)
+            GradeTooHighException();
+        else if (grade == 150)
+            GradeTooLowException();
+    }
 }
 
-void		Bureaucrat::decrementGrade(void)
+void	Bureaucrat::operator--()
 {
-	if (this->_grade + 1 > 150)
-		Bureaucrat::GradeTooLowException();
-	else
-		this->_grade++;
+    try
+    {
+        this->_grade++;
+        if (this->_grade < 1)
+            throw (1);
+        else if (this->_grade > 150)
+            throw (150);
+    }
+    catch(int grade)
+    {
+        if (grade == 1)
+            GradeTooHighException();
+        else if (grade == 150)
+            GradeTooLowException();
+    }
 }
 
 void		Bureaucrat::signForm(Form &form)
