@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:12:25 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/02/17 15:37:54 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/04/28 17:41:01 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 class Bureaucrat
 {
 	private:
-		const std::string	name;
-		int					grade; // de 150 a 1
+		std::string	name;
+		int			grade;
 
 	public:
 		Bureaucrat(/* args */);
