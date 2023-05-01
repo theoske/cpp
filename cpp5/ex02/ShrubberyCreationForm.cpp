@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 16:17:42 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/05/01 18:23:13 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/05/01 19:08:45 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int	ShrubberyCreationForm::execute(Bureaucrat &executor)
 			GradeTooLowException();
 		else if (option == 3)
 		{
+			std::cout << "ShrubberyCreationForm execution" << std::endl;
 			std::ofstream ofs(this->_target + "_shrubbery");
 			ofs << "0 0" << std::endl;
 			ofs << "i i" << std::endl;

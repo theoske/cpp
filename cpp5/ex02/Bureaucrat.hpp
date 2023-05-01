@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:12:25 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/05/01 17:23:17 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/05/01 18:46:55 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@ class Bureaucrat
 
 };
 
-std::ostream	&operator<<(std::ostream &o, Bureaucrat const &rhs);
+std::ostream	&operator<<(std::ostream &os, Bureaucrat &f);
 
 #endif

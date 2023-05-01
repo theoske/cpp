@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:10:19 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/05/01 18:01:44 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/05/01 18:48:29 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,10 @@ class Form
 		int				getGradeExe() const;
 		std::string		getName();
 		bool			isSigned();
-		virtual void	beSigned(Bureaucrat *b) = 0;
+		void			beSigned(Bureaucrat *b);
+		virtual int		execute(Bureaucrat &executor) = 0;
 };
 
-std::ostream &	operator<<(std::ostream &o, Form const &rhs);
+std::ostream &operator<<(std::ostream &os, Form &f);
 
 #endif
