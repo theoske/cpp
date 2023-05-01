@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 16:17:36 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/05/01 18:17:06 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/05/01 18:21:00 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int	RobotomyRequestForm::execute(Bureaucrat &executor)
 			GradeTooLowException();
 		else if (option == 3)
 		{
+			std::cout << "BRRRRRRR" << std::endl;
 			if (rand() % 2 == 0)
 				std::cout << this->_target << " has been robotomized successfully." << std::endl;
 			else

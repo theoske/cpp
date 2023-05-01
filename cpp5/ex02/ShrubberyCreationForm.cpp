@@ -6,20 +6,25 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 16:17:42 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/26 18:44:37 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/05/01 18:23:13 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
+
+ShrubberyCreationForm::ShrubberyCreationForm() : Form("ShrubberyCreationForm", 145, 137), _target("N/A")
+{
+	std::cout << "ShrubberyCreationForm constructor called" << std::endl;
+}
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form("ShrubberyCreationForm", 145, 137), _target(target)
 {
 	std::cout << "ShrubberyCreationForm constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm const & src ) : Form(src), _target(src._target)
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &f) : Form(f), _target(f._target)
 {
-	*this = src;
+	*this = f;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
@@ -27,26 +32,35 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 	std::cout << "ShrubberyCreationForm destructor called" << std::endl;
 }
 
-ShrubberyCreationForm &		ShrubberyCreationForm::operator=( ShrubberyCreationForm const & rhs )
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &f)
 {
-	(void)rhs;
+	this->_target = f._target;
 	return *this;
 }
 
-int	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+int	ShrubberyCreationForm::execute(Bureaucrat &executor)
 {
-	if (this->getSigned() == false)
+	try
 	{
-		Form::FormNotSignedException();
-		return (-1);
+		if (this->isSigned() == false)
+			throw 1;
+		else if (executor.getGrade() > this->getGradeExe())
+			throw 2;
+		else
+			throw 3;
 	}
-	if (executor.getGrade() > this->getGradeExec())
+	catch(int option)
 	{
-		Form::GradeTooLowException();
-		return (-1);
+		if (option == 1)
+			std::cout << this->getName() <<" Form not signed." << std::endl;
+		else if (option == 2)
+			GradeTooLowException();
+		else if (option == 3)
+		{
+			std::ofstream ofs(this->_target + "_shrubbery");
+			ofs << "0 0" << std::endl;
+			ofs << "i i" << std::endl;
+		}
 	}
-	std::ofstream ofs(this->_target + "_shrubbery");
-	ofs << "0 0" << std::endl;
-	ofs << "i i" << std::endl;
 	return (0);
 }
