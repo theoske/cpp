@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:20:25 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/28 17:55:58 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/05/01 18:58:10 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	Form::beSigned(Bureaucrat *b)
 {
 	try
 	{
-		if (b->getGrade() < this->grade_to_sign)
+		if (b->getGrade() <= this->grade_to_sign)
 		{
 			this->is_signed = 1;
 			b->signForm(this);
