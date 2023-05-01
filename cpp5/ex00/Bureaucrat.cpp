@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:12:08 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/28 18:05:02 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/05/01 16:18:42 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ const std::string	Bureaucrat::getName()
 {
     return (this->name);
 }
+
 int		Bureaucrat::getGrade()
 {
     return (this->grade);
