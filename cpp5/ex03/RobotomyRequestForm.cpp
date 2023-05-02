@@ -6,25 +6,25 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 16:17:36 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/27 17:10:26 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/05/01 18:21:00 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
+
+RobotomyRequestForm::RobotomyRequestForm() : Form("RobotomyRequestForm", 72, 45), _target("N/A")
+{
+	std::cout << "RobotomyRequestForm default constructor called" << std::endl;
+}
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form("RobotomyRequestForm", 72, 45), _target(target)
 {
 	std::cout << "RobotomyRequestForm constructor called" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string name, std::string target) : Form(name, 72, 45), _target(target)
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &f) : Form(f), _target(f._target)
 {
-	std::cout << "RobotomyRequestForm constructor called" << std::endl;
-}
-
-RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const & src ) : Form(src), _target(src._target)
-{
-	*this = src;
+	*this = f;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
@@ -32,28 +32,37 @@ RobotomyRequestForm::~RobotomyRequestForm()
 	std::cout << "RobotomyRequestForm destructor called" << std::endl;
 }
 
-RobotomyRequestForm &RobotomyRequestForm::operator=( RobotomyRequestForm const & rhs )
+RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &f)
 {
-	(void)rhs;
+	this->_target = f._target;
 	return *this;
 }
 
-int	RobotomyRequestForm::execute(Bureaucrat const & executor) const
+int	RobotomyRequestForm::execute(Bureaucrat &executor)
 {
-	if (this->getSigned() == false)
+	try
 	{
-		Form::FormNotSignedException();
-		return (-1);
+		if (this->isSigned() == false)
+			throw 1;
+		else if (executor.getGrade() > this->getGradeExe())
+			throw 2;
+		else
+			throw 3;
 	}
-	if (executor.getGrade() > this->getGradeExec())
+	catch(int option)
 	{
-		Form::GradeTooLowException();
-		return (-1);
+		if (option == 1)
+			std::cout << this->getName() <<" Form not signed." << std::endl;
+		else if (option == 2)
+			GradeTooLowException();
+		else if (option == 3)
+		{
+			std::cout << "BRRRRRRR" << std::endl;
+			if (rand() % 2 == 0)
+				std::cout << this->_target << " has been robotomized successfully." << std::endl;
+			else
+				std::cout << this->_target << " robotomization failed." << std::endl;
+		}
 	}
-	std::cout << "Drilling noises..." << std::endl;
-	if (rand() % 2 == 0)
-		std::cout << this->_target << " has been robotomized successfully." << std::endl;
-	else
-		std::cout << this->_target << " robotomization failed." << std::endl;
 	return (0);
 }

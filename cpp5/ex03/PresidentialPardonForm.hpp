@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 16:17:34 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/27 17:08:28 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/05/01 18:02:56 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,17 @@
 
 class PresidentialPardonForm : public Form
 {
-
 	public:
-
-		PresidentialPardonForm(std::string target);
-		PresidentialPardonForm(std::string name, std::string target);
-		PresidentialPardonForm( PresidentialPardonForm const & src );
-		virtual ~PresidentialPardonForm();
-
-		PresidentialPardonForm &operator=( PresidentialPardonForm const & rhs );
-
-		virtual int	execute(Bureaucrat const & executor) const;
-		std::string		getTarget(void) const;
-
-	private:
 		PresidentialPardonForm();
-		std::string const	_target;
+		PresidentialPardonForm(std::string target);
+		PresidentialPardonForm(PresidentialPardonForm &f);
+		virtual ~PresidentialPardonForm();
+		PresidentialPardonForm &operator=(PresidentialPardonForm const &f);
+
+		virtual int		execute(Bureaucrat &executor);
+		std::string		getTarget(void) const;
+	private:
+		std::string	_target;
 };
 
 #endif

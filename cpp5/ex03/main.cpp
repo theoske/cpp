@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:14:57 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/27 17:20:04 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/05/02 17:26:51 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int main(void)
 	std::cout << "n3: " << man3.getName() << " Level : " << man3.getGrade() << std::endl;
 
 	std::cout << "-------- CREATE FORMS -------" << std::endl;
-	Form *nbr1 = new ShrubberyCreationForm("Tree1");
-	Form *nbr2 = new RobotomyRequestForm("Roboture");
-	Form *nbr3 = new PresidentialPardonForm("Slartibartfast");
+	Form *nbr1 = new ShrubberyCreationForm("shrub");
+	Form *nbr2 = new RobotomyRequestForm("robo");
+	Form *nbr3 = new PresidentialPardonForm("joe");
 
 	std::cout << "------ OPERATOR FORM -------" << std::endl;
 	std::cout << *nbr1 << std::endl;
@@ -39,53 +39,36 @@ int main(void)
 	std::cout << *nbr3 << std::endl;
 
 	std::cout << "-------- SIGN FORM -------" << std::endl;
-	// man1.signForm(*nbr1);
-	// man1.signForm(*nbr2);
-	// man1.signForm(*nbr3);
-	// man1.executeForm(*nbr1);
-	// man1.executeForm(*nbr2);
-	// man1.executeForm(*nbr3);
-	// man2.executeForm(*nbr1);
-	// man2.executeForm(*nbr2);
-	// man2.executeForm(*nbr3);
-	// man3.executeForm(*nbr1);
-	// man3.executeForm(*nbr2);
-	// man3.executeForm(*nbr3);
-	
-	// std::cout << "---------------" << std::endl;
-	// man2.signForm(*nbr1);
-	// man2.signForm(*nbr2);
-	// man2.signForm(*nbr3);
-
-	// man1.executeForm(*nbr1);
-	// man1.executeForm(*nbr2);
-	// man1.executeForm(*nbr3);
-	// man2.executeForm(*nbr1);
-	// man2.executeForm(*nbr2);
-	// man2.executeForm(*nbr3);
-	// man3.executeForm(*nbr1);
-	// man3.executeForm(*nbr2);
-	// man3.executeForm(*nbr3);
-
-	// std::cout << "---------------" << std::endl;
-	// man3.signForm(*nbr1);
-	// man3.signForm(*nbr2);
-	// man3.signForm(*nbr3);
-	// man1.executeForm(*nbr1);
-	// man1.executeForm(*nbr2);
-	// man1.executeForm(*nbr3);
-	// man2.executeForm(*nbr1);
-	// man2.executeForm(*nbr2);
-	// man2.executeForm(*nbr3);
-	// man3.executeForm(*nbr1);
-	// man3.executeForm(*nbr2);
-	// man3.executeForm(*nbr3);
-
-	std::cout << "-------- INTERN -------" << std::endl;
 	Intern intern;
-	Form	*rrf;
+	Form *f1;
+	// Form *f2;
+	// Form *f3;
+
+	f1 = intern.makeForm("schruberry creation", "shrub");
+	// f2 = intern.makeForm("robotomy request", "robo");
+	// f3 = intern.makeForm("presidential pardon", "joe");
 	
-	rrf = intern.makeForm("schruberry creation", "Bender");
+	// nbr1->beSigned(&man1);
+	// nbr2->beSigned(&man1);
+	// nbr3->beSigned(&man1);
+	
+	// nbr1->beSigned(&man2);
+	// nbr2->beSigned(&man2);
+	// nbr3->beSigned(&man2);
+	
+	// nbr1->beSigned(&man3);
+	// nbr2->beSigned(&man3);
+	// nbr3->beSigned(&man3);
+	
+	// nbr1->execute(man1);
+	// nbr2->execute(man1);
+	// nbr3->execute(man1);
+	// nbr1->execute(man2);
+	// nbr2->execute(man2);
+	// nbr3->execute(man2);
+	// nbr1->execute(man3);
+	// nbr2->execute(man3);
+	// nbr3->execute(man3);
 
 	std::cout << "------ INFO FORM -------" << std::endl;
 	std::cout << *nbr1 << std::endl;

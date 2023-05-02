@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 15:24:03 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/27 15:26:10 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/05/02 17:11:34 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ class Intern
 	public:
 
 		Intern();
-		Intern( Intern const & src );
+		Intern(Intern const &f);
 		virtual ~Intern();
-		Intern &operator=(Intern const &rhs);
+		Intern &operator=(Intern const &f);
 
 		Form	*makeForm(std::string name, std::string target);
 

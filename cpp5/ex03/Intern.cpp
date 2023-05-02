@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 15:26:44 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/04/27 17:17:23 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/05/02 17:19:05 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,21 @@ Intern::~Intern(void)
 	std::cout << "Intern destructor called" << std::endl;
 }
 
-Intern	&Intern::operator=(Intern const &rhs)
+Intern	&Intern::operator=(Intern const &f)
 {
-	if (this != &rhs)
+	if (this != &f)
 	{
 		for (int i = 0; i < 3; i++)
-			this->_forms[i] = rhs._forms[i];
+			this->_forms[i] = f._forms[i];
 	}
 	return (*this);
 }
 
 Form	*Intern::makeForm(std::string name, std::string target)
 {
-	Form	*form[3] = {new PresidentialPardonForm(name, target),
-						new RobotomyRequestForm(name, target),
-						new ShrubberyCreationForm(name, target)};
+	Form	*form[3] = {new PresidentialPardonForm(target),
+						new RobotomyRequestForm(target),
+						new ShrubberyCreationForm(target)};
 	std::string form_name[3] = {"schruberry creation",
 								"robotomy request",
 								"presidential pardon"};
