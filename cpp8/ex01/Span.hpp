@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 20:28:51 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/05/05 20:54:12 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/05/10 14:26:48 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,11 @@ class Span
 
 		Span	&operator=(Span const &src);
 
-		void	addNumber(int n);
-		int		shortestSpan();
-		int		longestSpan();
+		void				addNumber(int n);
+		int					shortestSpan();
+		int					longestSpan();
+		std::vector<int>	&getV();
+
 	private:
 		unsigned int		_n;
 		std::vector<int>	_v;
