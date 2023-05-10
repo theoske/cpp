@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 20:29:04 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/05/10 14:27:29 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/05/10 14:46:57 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,18 @@ int main( void )
 	std::cout << sp.longestSpan() << std::endl;
 	
 	Span sp2 = Span(10000);
-	range(0, 10000, sp2.getV());
+	range(0, 9998, sp2.getV());
+	try
+	{
+		sp2.addNumber(-18);
+	}
+	catch
+		(std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << sp2.shortestSpan() << std::endl;
+	std::cout << sp2.longestSpan() << std::endl;
 	
 	return (0);
 }
