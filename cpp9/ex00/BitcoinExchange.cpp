@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 16:39:31 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/05/11 15:05:34 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/05/12 17:40:41 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,24 +38,32 @@ BitcoinExchange	&BitcoinExchange::operator=(BitcoinExchange const &src)
 
 void	BitcoinExchange::get_data()
 {
-	std::string					line;
-	std::vector<std::string>	inputDates;
+	std::string											line;
+	std::map<std::string, std::string>					inputMap;
+	std::map<std::string, std::string>					dataMap;
+	std::map<std::string, std::string>::const_iterator	it;
+	std::map<std::string, std::string>::iterator		it2;
+	std::string											value;
+	std::string											date;
 	
 	while (std::getline(this->input, line))
-	{
-		inputDates.push_back(line.substr(0, line.find(" ")));
-		line = line.substr(line.find(" ") + 1);
-	}
-	std::map<std::string, std::string>	dataMap;
+		inputMap.insert(std::make_pair(line.substr(0, line.find(" ")), line.substr(line.find("| ") + 1)));
 	while (std::getline(this->data, line))
+		dataMap.insert(std::make_pair(line.substr(0, line.find(",")), line.substr(line.find(",") + 1)));
+	// for (it = inputMap.begin(); it != inputMap.end(); it++)
+    // 	std::cout << "Date: " << it->first << ", Data: " << it->second << std::endl;
+	for (std::map<std::string, std::string>::const_iterator it = inputMap.begin(); it != inputMap.end(); it++)
 	{
-		std::string	extractedDate = line.substr(0, line.find(","));
-		if (std::find(inputDates.begin(), inputDates.end(), extractedDate) != inputDates.end())
-			dataMap[extractedDate] = line.substr(line.find(",") + 1);
-	}
-	std::map<std::string, std::string>::const_iterator it;
-	for (it = dataMap.begin(); it != dataMap.end(); ++it) {
-    std::cout << "Date: " << it->first << ", Data: " << it->second << std::endl;
+		date = it->first;
+		value = it->second;
+
+		it2 = dataMap.find(date);
+		if (it2 != dataMap.end())
+		{
+			long double value2 = std::stold(it2->second);
+			long double multiplication = std::stold(value) * value2;
+			std::cout << "Date: " << date << ", Data: " << value << ", Data2: " << value2 << ", Multiplication: " << multiplication << std::endl;
+		}
 	}
 }
 
