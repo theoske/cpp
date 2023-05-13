@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 16:39:28 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/05/13 15:28:02 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/05/13 16:22:02 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <map>
 # include <sstream>
 # include <ctime>
+# include <limits>
 
 class BitcoinExchange
 {
@@ -41,7 +42,9 @@ class BitcoinExchange
 		std::ifstream	input;
 };
 
-int	ft_check(std::string date, std::string value);
-int	check_characters(std::string value);
+std::string findClosestLowerDate(const std::map<std::string, std::string>& dateMap, const std::string& targetDate);
+bool		isValidDate(std::string dateStr);
+int			ft_check(std::string date, std::string value);
+int			check_characters(std::string value);
 
 #endif
