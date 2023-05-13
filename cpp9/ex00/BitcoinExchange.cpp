@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 16:39:31 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/05/13 16:23:24 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/05/13 16:27:22 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	BitcoinExchange::get_data()
 			long double value2 = std::stold(it2->second);
 			long double multiplication = std::stold(value) * value2;
 			if (ft_check(date, value) == 0)
-				std::cout << "Date: " << date << ", btc amount: " << value << ", btc value: " << value2 << ", Multiplication: " << multiplication << std::endl;
+				std::cout << "Date: " << date << ", btc amount: " << value << ", btc value: " << value2 << ", Result: " << multiplication << std::endl;
 		}
 	}
 }
