@@ -6,13 +6,13 @@
 #    By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/02 17:36:52 by tkempf-e          #+#    #+#              #
-#    Updated: 2023/05/04 18:25:15 by tkempf-e         ###   ########.fr        #
+#    Updated: 2023/05/15 16:15:51 by tkempf-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME     := convert
+NAME     := Serialization
 
-SRCS     := convert.cpp	main.cpp	data.cpp
+SRCS     := Serializer.cpp	main.cpp Data.cpp
 OBJS     := $(SRCS:.cpp=.o)
 
 CXX      := c++

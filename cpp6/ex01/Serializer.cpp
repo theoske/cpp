@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Serializer.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 16:00:00 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/05/15 16:25:56 by tkempf-e         ###   ########.fr       */
+/*   Created: 2023/05/04 18:22:34 by tkempf-e          #+#    #+#             */
+/*   Updated: 2023/05/15 16:25:44 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
-#include "Data.hpp"
 
-int	main()
+//unlike static_cast, reinterpret_cast doesnt check if the cast is possible
+uintptr_t	Serializer::serialize(Data* ptr)
 {
-	Data* data = new Data();
-	uintptr_t raw = Serializer::serialize(data);
-	Data* data2 = Serializer::deserialize(raw);
-	std::cout << "Data2: " << data2 << std::endl;
-	std::cout << "Data: " << data << std::endl;
-	return (0);
+	return (reinterpret_cast<uintptr_t>(ptr));
+}
+
+Data*		Serializer::deserialize(uintptr_t raw)
+{
+	return (reinterpret_cast<Data*>(raw));
 }
