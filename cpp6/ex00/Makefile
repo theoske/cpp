@@ -6,13 +6,13 @@
 #    By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/02 17:36:52 by tkempf-e          #+#    #+#              #
-#    Updated: 2023/05/03 16:00:32 by tkempf-e         ###   ########.fr        #
+#    Updated: 2023/05/15 14:46:44 by tkempf-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME     := convert
 
-SRCS     := convert.cpp	main.cpp
+SRCS     := ScalarConverter.cpp	main.cpp
 OBJS     := $(SRCS:.cpp=.o)
 
 CXX      := c++
