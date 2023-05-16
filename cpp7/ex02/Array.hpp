@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 18:31:16 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/05/05 18:41:11 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/05/16 14:48:50 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ Array<T>::Array(void) : _array(NULL), _size(0)
 template <typename T>
 Array<T>::Array(unsigned int n) : _array(new T[n]), _size(n)
 {
+	for (unsigned int i = 0; i < this->_size; i++)
+		this->_array[i] = T();
 	return ;
 }
 
