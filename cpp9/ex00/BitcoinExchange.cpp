@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 16:39:31 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/05/13 16:56:07 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:34:00 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,33 +39,34 @@ BitcoinExchange	&BitcoinExchange::operator=(BitcoinExchange const &src)
 void	BitcoinExchange::get_data()
 {
 	std::string											line;
-	std::map<std::string, std::string>					inputMap;
+	std::map<std::string, std::vector<std::string> >	inputMap;
 	std::map<std::string, std::string>					dataMap;
-	std::map<std::string, std::string>::const_iterator	it;
 	std::map<std::string, std::string>::iterator		it2;
+	std::vector<std::string>							values;
 	std::string											value;
 	std::string											date;
-	
-	while (std::getline(this->input, line))
-		inputMap.insert(std::make_pair(line.substr(0, line.find(" ")), line.substr(line.find("| ") + 1)));
+
+	while (std::getline(this->input, line))// mm date == mm index
+		inputMap[line.substr(0, line.find(" "))].push_back(line.substr(line.find("| ") + 1));
 	while (std::getline(this->data, line))
-		dataMap.insert(std::make_pair(line.substr(0, line.find(",")), line.substr(line.find(",") + 1)));
-	for (std::map<std::string, std::string>::const_iterator it = inputMap.begin(); it != inputMap.end(); it++)
+		dataMap[line.substr(0, line.find(","))] = line.substr(line.find(",") + 1);
+	for (std::map<std::string, std::vector<std::string> >::iterator it = inputMap.begin(); it != inputMap.end(); ++it)
 	{
 		date = it->first;
-		value = it->second;
-		date = findClosestLowerDate(dataMap, date);
-		it2 = dataMap.find(date);
-		if (it2 != dataMap.end())
+		values = it->second;
+		for (std::vector<std::string>::iterator itV = values.begin(); itV != values.end(); ++itV)
 		{
-			long double value2 = std::stold(it2->second);
-			long double multiplication = std::stold(value) * value2;
-			if (ft_check(date, value) == 0)
-				std::cout << "Date: " << date << ", btc amount: " << value << ", btc value: " << value2 << ", Result: " << multiplication << std::endl;
+			value = *itV;
+			date = findClosestLowerDate(dataMap, date);
+			it2 = dataMap.find(date);
+			if (it2 != dataMap.end())
+			{
+				if (ft_check(date, value) == 0)
+					std::cout << "Date: " << date << ", btc amount: " << value << ", btc values: " << std::stold(it2->second) << ", Result: " << std::stold(value) * std::stold(it2->second) << std::endl;
+			}
 		}
 	}
 }
-
 std::string findClosestLowerDate(const std::map<std::string, std::string>& dataMap, const std::string& targetDate)
 {
     time_t targetTime = time(nullptr);
@@ -165,13 +166,13 @@ int	ft_check(std::string dateStr, std::string value)
 	return (0);
 }
 
-int	check_characters(std::string value)
+int	check_characters(std::string values)
 {
-	for (unsigned long i = 0; i < value.length(); i++)
+	for (unsigned long i = 0; i < values.length(); i++)
 	{
-		if ((value[i] < '0' || value[i] > '9') && value[i] != '.' && value[i] != ' ')
+		if ((values[i] < '0' || values[i] > '9') && values[i] != '.' && values[i] != ' ')
 		{
-			std::cout << "Error: wrong characters in amount of btc: " << value << std::endl;
+			std::cout << "Error: wrong characters in amount of btc: " << values << std::endl;
 			return (-1);
 		}
 	}
