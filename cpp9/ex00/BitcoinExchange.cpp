@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 16:39:31 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/05/17 17:34:00 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:39:24 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,10 +150,9 @@ int	ft_check(std::string dateStr, std::string value)
 {
 	if (std::stold(value) > 1000 || std::stold(value) < 0 || value.length() == 0 || check_characters(value) == -1)
 	{
-		std::cout << "Error: wrong amount of btc (0 <= btc <= 1000): " << value << std::endl;
+		std::cout << "Error: wrong amount of btc (0 <= <int>amount <= 1000): " << value << std::endl;
 		return (-1);
 	}
-	
 	std::istringstream dateStream(dateStr);
 	std::tm date;
 	dateStream >> std::get_time(&date, "%Y-%m-%d");
@@ -162,7 +161,6 @@ int	ft_check(std::string dateStr, std::string value)
 		std::cout << "Error: wrong date format (YYYY-MM-DD): " << dateStr << std::endl;
 		return (-1);
 	}
-	
 	return (0);
 }
 
