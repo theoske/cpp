@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 16:39:31 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/05/17 17:39:24 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/05/17 17:43:20 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ void	BitcoinExchange::get_data()
 		dataMap[line.substr(0, line.find(","))] = line.substr(line.find(",") + 1);
 	for (std::map<std::string, std::vector<std::string> >::iterator it = inputMap.begin(); it != inputMap.end(); ++it)
 	{
-		date = it->first;
 		values = it->second;
 		for (std::vector<std::string>::iterator itV = values.begin(); itV != values.end(); ++itV)
 		{
+			date = it->first;
 			value = *itV;
 			date = findClosestLowerDate(dataMap, date);
 			it2 = dataMap.find(date);
