@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 16:03:26 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/05/18 16:21:26 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/05/18 17:21:41 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	RPN::compute(std::string str)
 	std::stringstream	ss(str);
 	std::string			tmp;
 	std::string			operators = "+-*/%";
-	std::string			commands = "pop dump assert add sub mul div mod print exit";
 
 	while (ss >> tmp)
 	{
@@ -56,19 +55,6 @@ void	RPN::compute(std::string str)
 			else if (tmp[0] == '%')
 				mod();
 		}
-		else if (tmp.size() == 1 && commands.find(tmp[0]) != std::string::npos)
-		{
-			if (tmp[0] == 'p')
-				pop();
-			else if (tmp[0] == 'd')
-				dump();
-			else if (tmp[0] == 'a')
-				assertt(tmp);
-			else if (tmp[1] == 'r')
-				print();
-			else if (tmp[0] == 'e')
-				exit();
-		}
 		else
 			push(tmp);
 	}
@@ -77,11 +63,11 @@ void	RPN::compute(std::string str)
 
 void	RPN::push(std::string str)
 {
-	int		nb;
-	char	*end;
+	long int		nb;
+	char			*end;
 
 	nb = std::strtol(str.c_str(), &end, 10);
-	if (*end)
+	if (end == str || *end)
 		throw std::runtime_error("Invalid value");
 	_stack.push(nb);
 }
