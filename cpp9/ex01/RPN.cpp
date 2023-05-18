@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 16:03:26 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/05/18 17:21:41 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/05/18 17:28:01 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,38 +70,6 @@ void	RPN::push(std::string str)
 	if (end == str || *end)
 		throw std::runtime_error("Invalid value");
 	_stack.push(nb);
-}
-
-void	RPN::pop()
-{
-	if (_stack.empty())
-		throw std::runtime_error("Pop on empty stack");
-	_stack.pop();
-}
-
-void	RPN::dump()
-{
-	std::stack<int>	tmp = _stack;
-
-	while (!tmp.empty())
-	{
-		std::cout << tmp.top() << std::endl;
-		tmp.pop();
-	}
-}
-
-void	RPN::assertt(std::string str)
-{
-	int		nb;
-	char	*end;
-
-	nb = std::strtol(str.c_str(), &end, 10);
-	if (*end)
-		throw std::runtime_error("Invalid value");
-	if (_stack.empty())
-		throw std::runtime_error("Assert on empty stack");
-	if (_stack.top() != nb)
-		throw std::runtime_error("Assert failed");
 }
 
 void	RPN::add()
@@ -183,9 +151,4 @@ void	RPN::print()
 	if (_stack.empty())
 		throw std::runtime_error("Print on empty stack");
 	std::cout << _stack.top() << std::endl;
-}
-
-void	RPN::exit()
-{
-	_exit = true;
 }
