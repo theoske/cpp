@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 17:31:45 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/05/19 17:31:40 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/05/23 13:25:41 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,11 @@ class PmergeMe
 		~PmergeMe();
 		PmergeMe	&operator=(PmergeMe const &src);
 
-		void	mergeInsertionSort(std::vector<int> &arr, int left, int right);
+		void	insertionSort(std::vector<int> &arr);
 		void	merge(std::vector<int> &arr, int left, int mid, int right);
+		void	mergeInsertSort(char *argv1);
+		void	mergeSort(std::vector<int>& arr, int left, int right);
+
 	
 	private:
 		std::vector<int>	_arg;

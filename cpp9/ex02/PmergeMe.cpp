@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 17:32:20 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/05/19 17:32:13 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/05/23 13:27:04 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,84 +31,104 @@ PmergeMe	&PmergeMe::operator=(PmergeMe const &src)
 	return (*this);
 }
 
-void	PmergeMe::mergeInsertionSort(std::vector<int> &arr, int left, int right)
+//separer en paires, les trier, les fusionner
+//insertion sort si < 20
+
+void PmergeMe::insertionSort(std::vector<int> &arr)
 {
-	int n = arr.size();
-	if (left < right)
+    int n = arr.size();
+
+    for (int i = 1; i < n; ++i)
 	{
-        if (right - left < 20)
+        int key = arr[i];
+        int j = i - 1;
+
+        // Move elements greater than key to one position ahead
+        while (j >= 0 && arr[j] > key)
 		{
-            // Tri par insertion
-            for (int i = 1; i < n; ++i)
-			{
-				int key = arr[i];
-				int j = i - 1;
-
-        // Déplacer les éléments de la sous-séquence triée
-        // qui sont plus grands que la clé vers la droite
-			while (j >= 0 && arr[j] > key)
-			{
-				arr[j + 1] = arr[j];
-				--j;
-			}
-
-        // Insérer la clé à sa position correcte
+            arr[j + 1] = arr[j];
+            j--;
+        }
         arr[j + 1] = key;
-    		}
-		}
+    }
+}
+
+void PmergeMe::mergeSort(std::vector<int>& arr, int left, int right)
+{
+    if (left < right)
+	{
+        if (right - left + 1 <= 20)
+		{
+            insertionSort(arr);
+        }
 		else
 		{
-			// Tri par fusion
-			int mid = left + (right - left) / 2;
-			mergeInsertionSort(arr, left, mid);
-			mergeInsertionSort(arr, mid + 1, right);
-			merge(arr, left, mid, right);
-		}
-	}
-	for (unsigned long i = 0; i < arr.size(); ++i)
-	{
-        std::cout << arr[i] << " ";
+            int mid = left + (right - left) / 2;
+            
+            mergeSort(arr, left, mid);
+            mergeSort(arr, mid + 1, right);
+            
+            merge(arr, left, mid, right);
+        }
     }
-    std::cout << std::endl;
+}
+
+void	PmergeMe::mergeInsertSort(char *argv1)
+{
+	std::string str(argv1);
+	std::stringstream ss(str);
+	std::string token;
+	std::vector<int> arr;
+
+	while (std::getline(ss, token, ' '))
+	{
+		int value = std::stoi(token);
+		arr.push_back(value);
+	}
+	if (arr.size() <= 20)
+		insertionSort(arr);
+	else
+		mergeSort(arr, 0, arr.size() - 1);
+	for (unsigned long int i = 0; i < arr.size(); i++)
+		std::cout << arr[i] << " ";
+	std::cout << std::endl;
 }
 
 void	PmergeMe::merge(std::vector<int> &arr, int left, int mid, int right)
 {
     int n1 = mid - left + 1;
     int n2 = right - mid;
-
-    std::vector<int> leftArr(n1);
-    std::vector<int> rightArr(n2);
-
-    for (int i = 0; i < n1; i++)
-        leftArr[i] = arr[left + i];
-    for (int j = 0; j < n2; j++)
-        rightArr[j] = arr[mid + 1 + j];
-
-    int i = 0;
-    int j = 0;
-    int k = left;
-
-    while (i < n1 && j < n2) {
-        if (leftArr[i] <= rightArr[j]) {
-            arr[k] = leftArr[i];
-            i++;
+    
+    std::vector<int> L(n1), R(n2);
+    
+    for (int i = 0; i < n1; ++i)
+	{
+        L[i] = arr[left + i];
+    }
+    
+    for (int j = 0; j < n2; ++j)
+	{
+        R[j] = arr[mid + 1 + j];
+    }
+    
+    int i = 0, j = 0, k = left;
+    
+    while (i < n1 && j < n2)
+	{
+        if (L[i] <= R[j]) {
+            arr[k++] = L[i++];
         } else {
-            arr[k] = rightArr[j];
-            j++;
+            arr[k++] = R[j++];
         }
-        k++;
     }
-
-    while (i < n1) {
-        arr[k] = leftArr[i];
-        i++;
-        k++;
+    
+    while (i < n1)
+	{
+        arr[k++] = L[i++];
     }
-
-    while (j < n2) {
-        arr[k] = rightArr[j];
-        j++;
-        k++;
+    
+    while (j < n2)
+	{
+        arr[k++] = R[j++];
     }
 }
