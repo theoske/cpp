@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 17:32:20 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/05/23 13:27:04 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/05/23 15:18:50 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ PmergeMe::PmergeMe()
 {
 }
 
-PmergeMe::PmergeMe(PmergeMe const &src) : _arg(src._arg)
+PmergeMe::PmergeMe(PmergeMe const &src)
 {
 	*this = src;
 }
@@ -27,33 +27,31 @@ PmergeMe::~PmergeMe()
 
 PmergeMe	&PmergeMe::operator=(PmergeMe const &src)
 {
-	this->_arg = src._arg;
+	(void)src;
 	return (*this);
 }
 
 //separer en paires, les trier, les fusionner
 //insertion sort si < 20
-
-void PmergeMe::insertionSort(std::vector<int> &arr)
+template <typename C>
+void PmergeMe::insertionSort(C &arr)
 {
-    int n = arr.size();
-
-    for (int i = 1; i < n; ++i)
+    for (typename C::iterator it = arr.begin(); it != arr.end(); ++it)
 	{
-        int key = arr[i];
-        int j = i - 1;
-
+        typename C::iterator key = it;
+        typename C::iterator it2 = it-1;
         // Move elements greater than key to one position ahead
-        while (j >= 0 && arr[j] > key)
+        while (it2 >= arr.begin() && *it2 > *key)
 		{
-            arr[j + 1] = arr[j];
-            j--;
+            *(it2+1) = *it2;
+            it2--;
         }
-        arr[j + 1] = key;
+        *(it2+1) = *key;
     }
 }
 
-void PmergeMe::mergeSort(std::vector<int>& arr, int left, int right)
+template <typename C>
+void PmergeMe::mergeSort(C &arr, int left, int right)
 {
     if (left < right)
 	{
@@ -73,28 +71,26 @@ void PmergeMe::mergeSort(std::vector<int>& arr, int left, int right)
     }
 }
 
-void	PmergeMe::mergeInsertSort(char *argv1)
+template <typename C>
+void	PmergeMe::mergeInsertSort(C &arr)
 {
-	std::string str(argv1);
-	std::stringstream ss(str);
-	std::string token;
-	std::vector<int> arr;
-
-	while (std::getline(ss, token, ' '))
-	{
-		int value = std::stoi(token);
-		arr.push_back(value);
-	}
+	typename C::iterator it;
+	
+	std::cout << "Unsorted array: ";
+	for (it = arr.begin(); it != arr.end(); ++it)
+        std::cout << *it << " ";
 	if (arr.size() <= 20)
 		insertionSort(arr);
 	else
 		mergeSort(arr, 0, arr.size() - 1);
-	for (unsigned long int i = 0; i < arr.size(); i++)
-		std::cout << arr[i] << " ";
+	std::cout << "Sorted array: ";
+	for (it = arr.begin(); it != arr.end(); ++it)
+        std::cout << *it << " ";
 	std::cout << std::endl;
 }
 
-void	PmergeMe::merge(std::vector<int> &arr, int left, int mid, int right)
+template <typename C>
+void	PmergeMe::merge(C &arr, int left, int mid, int right)
 {
     int n1 = mid - left + 1;
     int n2 = right - mid;
@@ -132,3 +128,6 @@ void	PmergeMe::merge(std::vector<int> &arr, int left, int mid, int right)
         arr[k++] = R[j++];
     }
 }
+
+template void	PmergeMe::mergeInsertSort(std::list<int> &arr);
+template void	PmergeMe::mergeInsertSort(std::vector<int> &arr);

@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 17:31:45 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/05/23 13:25:41 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/05/23 14:48:01 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <sstream>
 # include <cmath>
 # include <vector>
+# include <list>
+# include <sys/time.h>
 
 class PmergeMe
 {
@@ -28,14 +30,14 @@ class PmergeMe
 		~PmergeMe();
 		PmergeMe	&operator=(PmergeMe const &src);
 
-		void	insertionSort(std::vector<int> &arr);
-		void	merge(std::vector<int> &arr, int left, int mid, int right);
-		void	mergeInsertSort(char *argv1);
-		void	mergeSort(std::vector<int>& arr, int left, int right);
-
-	
-	private:
-		std::vector<int>	_arg;
+		template <typename C>
+		void	insertionSort(C &arr);
+		template <typename C>
+		void	merge(C &arr, int left, int mid, int right);
+		template <typename C>
+		void	mergeInsertSort(C &argv1);
+		template <typename C>
+		void	mergeSort(C &arr, int left, int right);
 };
 
 #endif
