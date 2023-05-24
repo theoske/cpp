@@ -6,7 +6,7 @@
 /*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 17:31:45 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/05/23 14:48:01 by tkempf-e         ###   ########.fr       */
+/*   Updated: 2023/05/24 18:24:41 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,11 @@ class PmergeMe
 		PmergeMe	&operator=(PmergeMe const &src);
 
 		template <typename C>
-		void	insertionSort(C &arr);
-		template <typename C>
-		void	merge(C &arr, int left, int mid, int right);
+		void	merge(C &arr, typename C::iterator left, typename C::iterator mid, typename C::iterator right);
 		template <typename C>
 		void	mergeInsertSort(C &argv1);
 		template <typename C>
-		void	mergeSort(C &arr, int left, int right);
+		void	mergeSort(C &arr, typename C::iterator left, typename C::iterator right);
 };
 
 #endif
