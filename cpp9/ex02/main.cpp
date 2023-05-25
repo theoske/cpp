@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 17:31:25 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/05/24 21:00:59 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/25 14:25:17 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int main(int argc, char **argv)
 					value += static_cast<int>(argv[1][i] - 48);
 					i++;
 				}
+				if (!argv[1][i])
+					i--;
 				if (argv[1][i])
 				{
 					std::cout << value << std::endl;
