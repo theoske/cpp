@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: tkempf-e <tkempf-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 17:31:25 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/05/25 15:10:41 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/25 17:08:37 by tkempf-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ int main(int argc, char **argv)
 					i--;
 				if (argv[1][i])
 				{
-					std::cout << value << std::endl;
 					arr.push_back(value);
 					list.push_back(value);
 					i++;
