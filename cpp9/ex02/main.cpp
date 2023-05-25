@@ -6,11 +6,27 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 17:31:25 by tkempf-e          #+#    #+#             */
-/*   Updated: 2023/05/25 14:25:17 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/25 15:10:41 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+
+int	ft_checker(char *argv)
+{
+	int i=0;
+
+	while (argv[i])
+	{
+		if ((argv[i] < '0' || argv[i] > '9') && argv[i] != ' ')
+		{
+			std::cout << "Error: argument must only contain unsigned int: "<< argv[i] << std::endl;
+			return (-1);
+		}
+		i++;
+	}
+	return (0);
+}
 
 int main(int argc, char **argv)
 {
@@ -20,6 +36,8 @@ int main(int argc, char **argv)
 
 	if (argc == 2)
 	{
+		if (ft_checker(argv[1]) == -1)
+			return (-1);
 		try
 		{
 			std::vector<int> arr;
@@ -47,11 +65,11 @@ int main(int argc, char **argv)
 			gettimeofday(&start, NULL);
 			pmm.mergeInsertSort(arr);
 			gettimeofday(&end, NULL);
-			std::cout << "Vector: " << (end.tv_sec - start.tv_sec) * 1000000 + end.tv_usec - start.tv_usec << std::endl;
+			std::cout << "Vector sorting time: " << (end.tv_sec - start.tv_sec) * 1000000 + end.tv_usec - start.tv_usec << "usec" << std::endl;
 			gettimeofday(&start, NULL);
 			pmm.mergeInsertSort(list);
 			gettimeofday(&end, NULL);
-			std::cout << "List: " << (end.tv_sec - start.tv_sec) * 1000000 + end.tv_usec - start.tv_usec << std::endl;
+			std::cout << "List sorting time: " << (end.tv_sec - start.tv_sec) * 1000000 + end.tv_usec - start.tv_usec << "usec" << std::endl;
 		}
 		catch (std::exception &e)
 		{
